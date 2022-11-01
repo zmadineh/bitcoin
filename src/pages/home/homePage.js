@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import {fetchBitcoinDataAsync} from "../../toolkit/slices/bitcoin.slice";
 import {fetchNewsDataAsync} from "../../toolkit/slices/news.slice";
+import Navbar from "../../component/navbar/Navbar";
 
 const HomePage= () => {
 
@@ -26,7 +27,7 @@ const HomePage= () => {
 
     return (
         <div>
-            home page
+            <Navbar />
             <div>
                 <button onClick={search}>
                     search
