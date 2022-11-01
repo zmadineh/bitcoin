@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import store  from "./toolkit/store";
-import { persistor } from "./toolkit/store";
-import { PersistGate } from "redux-persist/integration/react";
+// import { persistor } from "./toolkit/store";
+// import { PersistGate } from "redux-persist/integration/react";
 import HomePage from "./pages/home/homePage";
 
 
