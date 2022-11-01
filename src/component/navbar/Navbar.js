@@ -1,62 +1,35 @@
-import React from "react";
-import {
-    AppBar,
-    Toolbar,
-    CssBaseline,
-    Typography,
-    makeStyles,
-} from "@mui/material";
-import {Link} from "react-router-dom";
-
-const useStyles = makeStyles((theme) => ({
-    navlinks: {
-        marginLeft: theme.spacing(10),
-        display: "flex",
-    },
-    logo: {
-        flexGrow: "1",
-        cursor: "pointer",
-    },
-    link: {
-        textDecoration: "none",
-        color: "white",
-        fontSize: "20px",
-        marginLeft: theme.spacing(20),
-        "&:hover": {
-            color: "yellow",
-            borderBottom: "1px solid white",
-        },
-    },
-}));
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 
 
 const Navbar = () => {
 
-    const classes = useStyles();
-
     return(
-        <AppBar position="static">
-            <CssBaseline />
-            <Toolbar>
-                <Typography variant="h4" className={classes.logo}>
-                    Navbar
-                </Typography>
-                <div className={classes.navlinks}>
-                    <Link to="/" className={classes.link}>
-                        Home
-                    </Link>
-                    <Link to="/about" className={classes.link}>
-                        About
-                    </Link>
-                    <Link to="/contact" className={classes.link}>
-                        Contact
-                    </Link>
-                    <Link to="/faq" className={classes.link}>
-                        FAQ
-                    </Link>
-                </div>
-            </Toolbar>
-        </AppBar>
+        // <Box sx={{ flexGrow: 1 }}>
+            <AppBar position="static" sx={{ backgroundColor: 'background.default', color: 'text.primary' }}>
+                <Toolbar>
+                    <IconButton
+                        size="large"
+                        edge="start"
+                        color="inherit"
+                        aria-label="menu"
+                        sx={{ mr: 2 }}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant="h2" component="div" sx={{ flexGrow: 1 }}>
+                        News
+                    </Typography>
+                    <Button color="inherit">{`ورود / ثبت نام`}</Button>
+                </Toolbar>
+            </AppBar>
+        // </Box>
     )
 }
 

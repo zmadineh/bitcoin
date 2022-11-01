@@ -5,7 +5,6 @@ import store  from "./toolkit/store";
 // import { PersistGate } from "redux-persist/integration/react";
 import HomePage from "./pages/home/homePage";
 
-
 function App () {
 
   const router = createBrowserRouter([
@@ -16,6 +15,7 @@ function App () {
   ]);
 
   return (
+
       <Provider store={store}>
         {/*<PersistGate persistor={persistor} loading={<div>...loading</div>}>*/}
         <RouterProvider router={router} />

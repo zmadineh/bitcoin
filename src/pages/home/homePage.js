@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {fetchBitcoinDataAsync} from "../../toolkit/slices/bitcoin.slice";
 import {fetchNewsDataAsync} from "../../toolkit/slices/news.slice";
 import Navbar from "../../component/navbar/Navbar";
+import {Container} from "@mui/material";
 
 const HomePage= () => {
 
@@ -26,7 +27,7 @@ const HomePage= () => {
     }
 
     return (
-        <div>
+        <Container>
             <Navbar />
             <div>
                 <button onClick={search}>
@@ -39,7 +40,7 @@ const HomePage= () => {
                     {newsIsReceived ? <div> news yes </div> : <div> news no </div>}
                 </div>
             </div>
-        </div>
+        </Container>
     );
 }
 
