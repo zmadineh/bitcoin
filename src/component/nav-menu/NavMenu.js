@@ -1,12 +1,11 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import {pageList} from "../../data/page-list.data";
-import Grid from "@mui/material/Grid";
 import {Link} from "react-router-dom"
 import Box from "@mui/material/Box";
 
 
-const Navbar = () => {
+const NavMenu = () => {
 
     return(
         <Box>
@@ -20,4 +19,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar;
+export default NavMenu;

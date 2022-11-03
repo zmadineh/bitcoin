@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import {fetchBitcoinDataAsync} from "../../toolkit/slices/bitcoin.slice";
 import {fetchNewsDataAsync} from "../../toolkit/slices/news.slice";
-import Navbar from "../../component/navbar/Navbar";
+import NavMenu from "../../component/nav-menu/NavMenu";
 import {Container, Grid} from "@mui/material";
 import Header from "../../component/header/Header";
 

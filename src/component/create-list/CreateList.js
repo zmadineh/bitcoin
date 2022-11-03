@@ -2,31 +2,30 @@ import React from "react";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import Icon from '@mui/material/Icon';
+import Box from '@mui/material/Box';
 
 import ListItemText from "@mui/material/ListItemText";
 import List from "@mui/material/List";
-import Icon from "@mui/icons-material";
 
 const CreateList = ({list}) => {
-    // console.log(list)
-    return (
-        <List>
 
-            {list.map( (listItem, index) => (
-                <ListItem key={listItem.title} disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            {/*{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}*/}
-                            {/*<Icon>{listItem.icon}</Icon>*/}
-                            {listItem.icon}
-                        </ListItemIcon>
-                        <ListItemText primary={listItem.title} />
-                    </ListItemButton>
-                </ListItem>
+    return (
+            <List dir={'rtl'}>
+                {list.map( (listItem) => (
+                    <ListItem key={listItem.id} disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <Icon>{listItem.icon}</Icon>
+                            </ListItemIcon>
+                            <Box component={'div'}>
+                                <ListItemText primary={listItem.title}/>
+                            </Box>
+                        </ListItemButton>
+                    </ListItem>
                 ))}
-        </List>
+            </List>
+
     )
 }
 
