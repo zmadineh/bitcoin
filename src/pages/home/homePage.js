@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import {fetchBitcoinDataAsync} from "../../toolkit/slices/bitcoin.slice";
 import {fetchNewsDataAsync} from "../../toolkit/slices/news.slice";
 import Navbar from "../../component/navbar/Navbar";
-import {Container} from "@mui/material";
+import {Container, Grid} from "@mui/material";
+import Header from "../../component/header/Header";
 
 const HomePage= () => {
 
@@ -27,20 +28,20 @@ const HomePage= () => {
     }
 
     return (
-        <Container>
-            <Navbar />
-            <div>
-                <button onClick={search}>
-                    search
-                </button>
+            <Grid>
+                <Header />
                 <div>
-                    {bitcoinIsReceived ? <div> bitcoin yes </div> : <div> bitcoin no </div>}
+                    <button onClick={search}>
+                        search
+                    </button>
+                    <div>
+                        {bitcoinIsReceived ? <div> bitcoin yes </div> : <div> bitcoin no </div>}
+                    </div>
+                    <div>
+                        {newsIsReceived ? <div> news yes </div> : <div> news no </div>}
+                    </div>
                 </div>
-                <div>
-                    {newsIsReceived ? <div> news yes </div> : <div> news no </div>}
-                </div>
-            </div>
-        </Container>
+            </Grid>
     );
 }
 

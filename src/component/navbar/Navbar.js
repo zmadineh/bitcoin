@@ -1,35 +1,22 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import {pageList} from "../../data/page-list.data";
+import Grid from "@mui/material/Grid";
+import {Link} from "react-router-dom"
+import Box from "@mui/material/Box";
 
 
 const Navbar = () => {
 
     return(
-        // <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" sx={{ backgroundColor: 'background.default', color: 'text.primary' }}>
-                <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h2" component="div" sx={{ flexGrow: 1 }}>
-                        News
-                    </Typography>
-                    <Button color="inherit">{`ورود / ثبت نام`}</Button>
-                </Toolbar>
-            </AppBar>
-        // </Box>
+        <Box>
+            {pageList.map( page => (
+                <Button variant={'text'} color="inherit" key={page.id}>
+                    <Link to={page.link}>{page.title}</Link>
+                </Button>
+            ))}
+        </Box>
+
     )
 }
 

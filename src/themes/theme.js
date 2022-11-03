@@ -1,36 +1,46 @@
 import {createTheme} from "@mui/material/styles";
 
 export const theme = createTheme({
+    // direction: 'rtl',
     components: {
         MuiCssBaseline: {
             styleOverrides: {
                 body: {
-                    background: '#EEE',
-                    '.margin': {
-                        margin: 50
-                    },
-                    'a': {},
-                    '#myId': {}
+                    background: '#fff',
+                    color: '#212124',
+                    'a' : {
+                        textDecoration: "none",
+                        color: "inherit",
+                    }
                 }
             }
         },
-        // MuiButton: {
-        //     variants: [
-        //         {
-        //             props: {variant: 'mainButton'},
-        //             style: {
-        //                 color: '#fff',
-        //                 backgroundColor: '#50C2C9',
-        //                 borderRadius: '20px',
-        //                 textAlign: 'center',
-        //                 height: 60,
-        //                 '&:hover': {
-        //                     backgroundColor: '#50C2C9',
-        //                 }
-        //             }
-        //         },
-        //     ]
-        // }
+        MuiButton: {
+            variants: [
+                {
+                    props: {variant: 'mainButton'},
+                    style: {
+                        color: '#fff',
+                        backgroundColor: '#50C2C9',
+                        borderRadius: '20px',
+                        textAlign: 'center',
+                        height: 60,
+                        '&:hover': {
+                            backgroundColor: '#50C2C9',
+                        }
+                    }
+                },
+            ]
+        }
+    },
+
+    breakpoints: {
+        values: {
+            mobile: 0,
+            tablet: 640,
+            laptop: 1024,
+            desktop: 1200,
+        },
     },
 
     palette: {
