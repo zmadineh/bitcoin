@@ -1,0 +1,14 @@
+.live-price-main-container {
+    padding: 40px;
+}
+
+.live-price-main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px;
+}
+
+.live-price-filter {
+    margin: 30px;
+}
