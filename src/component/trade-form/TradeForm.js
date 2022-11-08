@@ -7,24 +7,9 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import SelectDialog from "../select-dialog/SelectDialog";
 
-const emails = ['username@gmail.com', 'user02@gmail.com'];
-
-const validationSchema = yup.object({
-    email: yup
-        .string('Enter your email')
-        .email('Enter a valid email')
-        .required('Email is required'),
-    password: yup
-        .string('Enter your password')
-        .min(8, 'Password should be of minimum 8 characters length')
-        .required('Password is required'),
-});
-
-const TradeForm = () => {
+const TradeForm = ({data, loading}) => {
     const formik = useFormik({
         initialValues: {
-            // email: 'foobar@example.com',
-            // password: 'foobar',
             currency: 'bitcoin',
             unit: 0,
             price: 0,
@@ -36,7 +21,7 @@ const TradeForm = () => {
     });
 
     const [open, setOpen] = useState(false);
-    const [selectedValue, setSelectedValue] = useState(emails[1]);
+    const [selectedValue, setSelectedValue] = useState('bitcoin');
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -64,6 +49,8 @@ const TradeForm = () => {
                         selectedValue={selectedValue}
                         open={open}
                         onClose={handleClose}
+                        data={data}
+                        loading={loading}
                     />
 
                     <TextField
@@ -74,8 +61,6 @@ const TradeForm = () => {
                         type="number"
                         value={formik.values.unit}
                         onChange={formik.handleChange}
-                        // error={formik.touched.email && Boolean(formik.errors.email)}
-                        // helperText={formik.touched.email && formik.errors.email}
                     />
                     <TextField
                         id="price"
@@ -85,8 +70,6 @@ const TradeForm = () => {
                         type="number"
                         value={formik.values.price}
                         onChange={formik.handleChange}
-                        // error={formik.touched.password && Boolean(formik.errors.password)}
-                        // helperText={formik.touched.password && formik.errors.password}
                     />
                 </Grid>
 

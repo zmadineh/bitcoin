@@ -16,25 +16,24 @@ import Divider from "@mui/material/Divider";
 const Header = () => {
 
     return (
-            <AppBar position="fixed" dir={'rtl'} sx={{ backgroundColor: 'inherit', color: 'text.primary', top: '0', zIndex: '1000' }}>
+            <AppBar position="fixed" dir={'rtl'} sx={{ backgroundColor: 'background.default', color: 'text.primary', top: '0', zIndex: '1000' }}>
                 <Container maxWidth="lg">
                     <Toolbar sx={{justifyContent: 'space-between'}}>
                         <AppMenu />
 
-                        <Box gap={1} sx={{display: { mobile: 'none', tablet: 'flex' }}}>
+                        <Grid gap={1} sx={{display: { mobile: 'none', tablet: 'flex' }}}>
                             <Button variant={'contained'} >{`ورود / ثبت نام`}</Button>
                             <Divider orientation="vertical" flexItem />
                             <img src={headerLogo} width={'100px'} />
-                        </Box>
+                        </Grid>
 
-                        <Box gap={1} sx={{display: { mobile: 'flex', tablet: 'none' }}}>
+                        <Grid gap={1} sx={{display: { mobile: 'flex', tablet: 'none' }}}>
                             <img src={headerLogo} width={'100px'}/>
-                        </Box>
+                        </Grid>
 
                     </Toolbar>
                 </Container>
             </AppBar>
-
     )
 }
 
