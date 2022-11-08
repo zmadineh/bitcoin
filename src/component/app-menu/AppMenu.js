@@ -19,7 +19,7 @@ const AppMenu = () => {
     };
 
     return (
-            <Box sx={{display: { mobile: 'none', tablet: 'flex'}, alignItems: 'center'}}>
+            <Box sx={{display: { xs: 'none', md: 'flex'}, alignItems: 'center'}}>
                 <IconButton
                     size="large"
                     edge="start"

@@ -29,7 +29,7 @@ const HomePage= () => {
 
     return (
             <div>
-                <Header />
+                <Header color={'background.default'}/>
                 <Trade />
 
                 <MainContent />

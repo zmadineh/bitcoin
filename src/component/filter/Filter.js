@@ -38,7 +38,7 @@ const Filter = ({className}) => {
     }
 
     return (
-        <Grid item xs={3} borderRadius={2}>
+        <Grid item xs={12} borderRadius={2}>
             <StyledToggleButtonGroup
                 size={'small'}
                 value={growthSelect}

@@ -7,17 +7,27 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Card from "../card/Card";
+import IconButton from "@mui/material/IconButton";
+import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
+import Star from '@mui/icons-material/Star';
+import {useDispatch} from "react-redux";
+import {addMark} from "../../toolkit/slices/bitcoin.slice";
 
 
-const PriceTable = ({header, titles, data, loading, count}) => {
+const PriceTable = ({direction = 'rtl', header, titles, data, loading, count, expand = false}) => {
+
+    const dispatch = useDispatch();
+    const handelMark = (coin) => {
+        dispatch(addMark(coin))
+    }
 
     return (
         <TableContainer component={Paper}>
-            <Table aria-label="live price table">
+            <Table aria-label="live price table" dir={direction}>
                 <TableHead>
                     <TableRow>
                         {header.map(item => (
-                            <TableCell key={item} align={"right"}>{item}</TableCell>
+                            <TableCell key={item} align={"center"}>{item}</TableCell>
                         ))}
                     </TableRow>
                 </TableHead>
@@ -30,7 +40,16 @@ const PriceTable = ({header, titles, data, loading, count}) => {
                                     <Card title={coin.name} description={coin.symbol} image={coin.image}/>
                                 </TableCell>
                                 {titles.map( title => (
-                                    <TableCell align="right">{coin[title]}</TableCell>
+
+                                    <TableCell align="center">
+                                        {expand ?
+                                            (title === 'mark' ? (
+                                                <IconButton onClick={() => handelMark(coin)}>{coin.mark ? <Star color={'warning'}/> : <StarBorderOutlinedIcon/> }</IconButton>)
+                                                    : (title === 'chart' ? "chart" : null)
+                                            ) :
+                                            coin[title]
+                                        }
+                                    </TableCell>
                                 ))}
                             </TableRow>
                         ))}

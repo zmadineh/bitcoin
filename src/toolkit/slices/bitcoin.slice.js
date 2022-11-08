@@ -59,6 +59,11 @@ const bitcoinSlice = createSlice({
     name: 'bitcoin',
     initialState,
     reducers: {
+        addMarkToAll: (state) => {
+            state.bitcoin.forEach(coin => {
+                coin.marked = false;
+            });
+        },
         addMark: (state, action) => {
             const payload = action.payload;
             const coin = state.bitcoin.find(coin => coin.id === action.payload.id)
@@ -85,5 +90,10 @@ const bitcoinSlice = createSlice({
         });
     },
 })
+
+export const {
+    addMarkToAll,
+    addMark,
+} = bitcoinSlice.actions;
 
 export default bitcoinSlice.reducer;

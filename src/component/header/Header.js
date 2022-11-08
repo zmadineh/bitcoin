@@ -12,22 +12,23 @@ import Box from "@mui/material/Box";
 import AppMenu from "../app-menu/AppMenu";
 import {Container} from "@mui/material";
 import Divider from "@mui/material/Divider";
+import {useTheme} from "@mui/material/styles";
 
-const Header = () => {
+const Header = ({color}) => {
 
     return (
-            <AppBar position="fixed" dir={'rtl'} sx={{ backgroundColor: 'background.default', color: 'text.primary', top: '0', zIndex: '1000' }}>
+            <AppBar position="fixed" dir={'rtl'} sx={{backgroundColor: color, color: 'text.primary', top: '0', zIndex: '1000' }}>
                 <Container maxWidth="lg">
                     <Toolbar sx={{justifyContent: 'space-between'}}>
                         <AppMenu />
 
-                        <Grid gap={1} sx={{display: { mobile: 'none', tablet: 'flex' }}}>
+                        <Grid gap={1} sx={{display: { xs: 'none', md: 'flex' }}}>
                             <Button variant={'contained'} >{`ورود / ثبت نام`}</Button>
                             <Divider orientation="vertical" flexItem />
                             <img src={headerLogo} width={'100px'} />
                         </Grid>
 
-                        <Grid gap={1} sx={{display: { mobile: 'flex', tablet: 'none' }}}>
+                        <Grid gap={1} sx={{display: { xs: 'flex', md: 'none' }}}>
                             <img src={headerLogo} width={'100px'}/>
                         </Grid>
 

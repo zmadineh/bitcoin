@@ -14,6 +14,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Card from "../card/Card";
 import Divider from "@mui/material/Divider";
 import {Checkbox} from "@mui/material";
+import OutlinedSearchBox from "../search-box/OutlinedSearchBox";
 
 
 const SelectDialog = ({onClose, selectedValue, open, data, loading}) => {
@@ -26,7 +27,7 @@ const SelectDialog = ({onClose, selectedValue, open, data, loading}) => {
 
     const handleSearch = (e) => {
         console.log(e.target.value)
-        setSearch(e.target.value)
+        setSearch(e.target.value.toString().toLowerCase())
     }
 
     const handleListItemClick = (value) => {
@@ -43,10 +44,7 @@ const SelectDialog = ({onClose, selectedValue, open, data, loading}) => {
                                 <IconButton onClick={handleClose}><Close /></IconButton>
                             </Grid>
                             <Grid container item xs={12} my={3}>
-                                <FormControl variant="standard" fullWidth dir={'rtl'}>
-                                    <OutlinedInput id="search" value={search} onChange={handleSearch} sx={{borderRadius: '15px'}} placeholder={'جستجو'}
-                                                   startAdornment={<InputAdornment position="start"><Search /></InputAdornment>} />
-                                </FormControl>
+                                <OutlinedSearchBox search={search} handleSearch={handleSearch} />
                             </Grid>
                         </Grid>
                     </Toolbar>
