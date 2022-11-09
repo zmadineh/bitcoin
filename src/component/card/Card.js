@@ -6,7 +6,7 @@ import {Avatar, Grid} from "@mui/material";
 const Card = ({title, description, image}) => {
 
     return(
-        <Grid container alignItems={"center"} justifyItems={'center'} gap={2}>
+        <Grid container item alignItems={"center"} justifyItems={'center'} gap={2}>
             <Avatar src={image} width={'30px'}/>
             <Grid m={'0 10px'}>
                 <Typography fontSize='20px'>{title}</Typography>

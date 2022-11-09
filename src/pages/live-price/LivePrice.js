@@ -1,47 +1,45 @@
-import React, {useMemo, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import Grid from "@mui/material/Grid";
 import Header from "../../component/header/Header";
 import {Container, Select} from "@mui/material";
 import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
-import {Equalizer} from "@mui/icons-material";
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import Star from '@mui/icons-material/Star';
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import {Link} from "react-router-dom";
-import Filter from "../../component/filter/Filter";
 import PriceTable from "../../component/price-table/PriceTable";
 import {useSelector} from "react-redux";
 import {useTheme} from "@mui/material/styles";
 import OutlinedSearchBox from "../../component/search-box/OutlinedSearchBox";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import IconButton from "@mui/material/IconButton";
-import { styled } from '@mui/material/styles';
 import OrderSelect from "../../component/order-select/OrderSelect";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import ToggleButton from "@mui/material/ToggleButton";
 
 const LivePrice = () => {
 
     const theme = useTheme();
-    const data = useSelector((state) => state.bitcoin.isReceived);
-    const loading = useSelector((state) => state.bitcoin.data);
-
-    // const sortedCoinsByRank = useMemo(() => {
-    //     return( data ?  [...data].sort((a, b) => a['rank'].localeCompare(b['rank'])) : data);
-    // }, [data]);
-
+    const data = useSelector((state) => state.bitcoin.data);
+    const loading = useSelector((state) => state.bitcoin.isReceived);
     const countOfDataToShow = 20;
 
-    const tableHeader = ['نشان کردن','تغییرات','نمودار','قیمت فروش','قیمت خرید','ارز دیجیتال'];
-    const coinItemTitle = ['low_24h', 'high_24h', 'chart', 'price_change_percentage_24h', 'mark'];
+    const tableHeader = [
+        'ارز دیجیتال',
+        'قیمت خرید',
+        'قیمت فروش',
+        'نمودار',
+        'تغییرات',
+        'نشان کردن',
+    ];
+    const coinItemTitle = [
+        {label: 'low_24h', type: 'price'},
+        {label: 'high_24h', type: "price"},
+        {label: 'chart', type: "chart"},
+        {label: 'price_change_percentage_24h', type: "percentage"},
+        {label: 'mark', type: 'mark'}
+    ];
 
     const [search, setSearch] = useState('');
-    const [priceOrder, setPriceOrder] = useState('most') // most or least
+    const [priceOrder, setPriceOrder] = useState('incremental') // incremental or descending
     const [unit, setUnit] = useState('toman') // or tether
     const [markedSelected, setMarkedSelected] = useState(false)
 
@@ -55,12 +53,8 @@ const LivePrice = () => {
 
     const handleUnit = (e, newUnit) => {
         setUnit(newUnit)
+        console.log(newUnit)
     }
-
-    const FILTER_MAP = {
-        all: () => true,
-        mark: (coin) => coin.marked,
-    };
 
     const filteredData = () => {
         let coins = data;
@@ -70,6 +64,7 @@ const LivePrice = () => {
             if (search)
                 coins = coins.filter(coin => (coin.name.toLowerCase().includes(search)))
         }
+        // console.log('filter', coins , data)
         return { coins, length: coins.length };
     }
 
@@ -123,7 +118,17 @@ const LivePrice = () => {
                        </Grid>
                    </Grid>
 
-                   <PriceTable direction={'rtl'} header={tableHeader} titles={coinItemTitle} data={filteredData().coins} loading={loading} count={countOfDataToShow} expand={true}/>
+                   <PriceTable
+                       dir={'ltr'}
+                       header={tableHeader}
+                       titles={coinItemTitle}
+                       data={filteredData().coins}
+                       unit={unit}
+                       loading={loading}
+                       count={countOfDataToShow}
+                       expand={true}
+                       sort={priceOrder}
+                   />
                </Paper>
            </Container>
        </Grid>

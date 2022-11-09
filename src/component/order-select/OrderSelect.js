@@ -15,8 +15,8 @@ const OrderSelect = ({Order, handleOrder}) => {
                 label="priceOrder"
                 onChange={handleOrder}
             >
-                <MenuItem value={'most'}>بیشترین قیمت</MenuItem>
-                <MenuItem value={'least'}>کمترین قیمت</MenuItem>
+                <MenuItem value={'descending'}>بیشترین قیمت</MenuItem>
+                <MenuItem value={'incremental'}>کمترین قیمت</MenuItem>
             </Select>
         </FormControl>
     )

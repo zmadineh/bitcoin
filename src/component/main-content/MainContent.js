@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -14,35 +14,52 @@ import {useSelector} from "react-redux";
 
 const MainContent = () => {
 
-    const data = useSelector((state) => state.bitcoin.isReceived);
-    const loading = useSelector((state) => state.bitcoin.data);
+    const data = useSelector((state) => state.bitcoin.data);
+    const loading = useSelector((state) => state.bitcoin.isReceived);
+    const [growthSelect, setGrowthSelect] = useState('incremental');
 
     const countOfDataToShow = 10;
-
     const tableHeader = ['ارز دیجیتال','قیمت خرید','قیمت فروش','تغییرات'];
-    const coinItemTitle = ['low_24h', 'high_24h', 'price_change_percentage_24h', 'current_price'];
+    const coinItemTitle = [
+        {label: 'low_24h', type: 'price'},
+        {label: 'high_24h', type: "price"},
+        {label: 'price_change_percentage_24h', type: "percentage"},
+    ];
 
     return (
         <Grid style={{backgroundColor: '#F8FAFE'}}>
             <Container sx={{padding: '50px 20px'}}>
                 <Paper dir={'rtl'} className='live-price-main-container' sx={{borderRadius: '20px'}}>
-                    <Grid className='live-price-main-header'>
+                    <Grid container className='live-price-main-header'>
 
-                        <Grid container item alignItems={"center"} gap={2}>
+                        <Grid item xs={10} display={"flex"} alignItems={"center"} gap={2}>
                             <Equalizer color="success" />
                             <Grid>
                                 <Typography variant='h5'>{`قیمت لحظه ای`}</Typography>
                                 <Typography variant='h6'>{`در 24 ساعت گذشته`}</Typography>
                             </Grid>
                         </Grid>
-                        <Link to={'/live'}> {`مشاهده همه`} </Link>
+
+                        <Grid item xs={2}   >
+                            <Link to={'/live'}> {`مشاهده همه`} </Link>
+                        </Grid>
+
                     </Grid>
 
-                    <Grid container item xs={12}>
-                        <Filter className='live-price-filter'/>
+                    <Grid container>
+                        <Filter growthSelect={growthSelect} setGrowthSelect={setGrowthSelect}/>
                     </Grid>
 
-                    <PriceTable header={tableHeader} titles={coinItemTitle} data={data} loading={loading} count={countOfDataToShow}/>
+                    <PriceTable
+                        dir={'rtl'}
+                        header={tableHeader}
+                        titles={coinItemTitle}
+                        data={data}
+                        unit={'toman'}
+                        loading={loading}
+                        count={countOfDataToShow}
+                        sort={growthSelect}
+                    />
                 </Paper>
             </Container>
         </Grid>

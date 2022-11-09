@@ -29,9 +29,7 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     },
 }));
 
-const Filter = ({className}) => {
-
-    const [growthSelect, setGrowthSelect] = useState('most');
+const Filter = ({growthSelect, setGrowthSelect}) => {
 
     const handleChange = (event, newGrowth) => {
         setGrowthSelect(newGrowth);
@@ -47,14 +45,14 @@ const Filter = ({className}) => {
                 aria-label="growth select"
 
             >
-                <ToggleButton value="most" standard={"true"}>
+                <ToggleButton value="descending" standard={"true"}>
                         <Grid container gap={1}>
                             <TrendingUpIcon color={'success'}/>
                             <Typography>بیشترین رشد</Typography>
                         </Grid>
                 </ToggleButton>
 
-                <ToggleButton value="lowest" standard={"true"}>
+                <ToggleButton value="incremental" standard={"true"}>
                         <Grid container gap={1} px={1}>
                             <TrendingDownIcon color={'error'}/>
                             <Typography>کمترین رشد</Typography>
