@@ -5,7 +5,7 @@ import {Avatar, Grid} from "@mui/material";
 const Card = ({title, description, image}) => {
 
     return(
-        <Grid container item flexDirection={"row"} spacing={2} justifyContent={"center"} >
+        <Grid container item flexDirection={{xs: 'column', md: "row"}} spacing={2} justifyContent={"center"}>
             <Grid container item xs={3}>
                 <Avatar src={image} width={'30px'}/>
             </Grid>
