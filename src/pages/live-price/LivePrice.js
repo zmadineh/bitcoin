@@ -20,7 +20,7 @@ const LivePrice = () => {
     const theme = useTheme();
     const data = useSelector((state) => state.bitcoin.data);
     const loading = useSelector((state) => state.bitcoin.isReceived);
-    const countOfDataToShow = 20;
+    const countOfDataToShow = 100;
 
     const tableHeader = [
         'ارز دیجیتال',
@@ -64,7 +64,6 @@ const LivePrice = () => {
             if (search)
                 coins = coins.filter(coin => (coin.name.toLowerCase().includes(search)))
         }
-        // console.log('filter', coins , data)
         return { coins, length: coins.length };
     }
 
@@ -77,7 +76,7 @@ const LivePrice = () => {
 
                    <Grid container py={3} gap={2}>
                            <Typography variant='h5'>قیمت لحظه ای</Typography>
-                           <Typography variant='h5'>{data ? data.length : 0} ارز دیجیتال</Typography>
+                           <Typography variant='h5'>{data ? filteredData().length : 0} ارز دیجیتال</Typography>
                    </Grid>
 
                    <Grid container spacing={3} sx={{flexDirection: {xs: "column", md: "row"}}}>

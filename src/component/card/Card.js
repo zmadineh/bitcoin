@@ -1,15 +1,16 @@
 import React from "react";
-import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import {Avatar, Grid} from "@mui/material";
 
 const Card = ({title, description, image}) => {
 
     return(
-        <Grid container item alignItems={"center"} justifyItems={'center'} gap={2}>
-            <Avatar src={image} width={'30px'}/>
-            <Grid m={'0 10px'}>
-                <Typography fontSize='20px'>{title}</Typography>
+        <Grid container item flexDirection={"row"} spacing={2} justifyContent={"center"} >
+            <Grid container item xs={3}>
+                <Avatar src={image} width={'30px'}/>
+            </Grid>
+            <Grid container item xs={8} mx={'10px'} flexDirection={"column"} alignItems={'flex-start'} >
+                <Typography fontSize='18px'>{title}</Typography>
                 <Typography fontSize='15px'>{description}</Typography>
             </Grid>
         </Grid>

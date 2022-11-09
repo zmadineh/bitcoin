@@ -1,16 +1,14 @@
-import React, {useEffect, useMemo, useState} from "react";
+import React, {useState} from "react";
+import Filter from "../filter/Filter";
+import {useSelector} from "react-redux";
+import './main-content.css';
 import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import {Equalizer} from "@mui/icons-material";
 import {Link} from "react-router-dom";
 import PriceTable from "../price-table/PriceTable";
 import Paper from "@mui/material/Paper";
-import './main-content.css';
 import {Container} from "@mui/material";
-import Filter from "../filter/Filter";
-import {useSelector} from "react-redux";
-
 
 const MainContent = () => {
 
@@ -27,7 +25,7 @@ const MainContent = () => {
     ];
 
     return (
-        <Grid style={{backgroundColor: '#F8FAFE'}}>
+        <Grid style={{backgroundColor: 'backgrounk.secondary'}}>
             <Container sx={{padding: '50px 20px'}}>
                 <Paper dir={'rtl'} className='live-price-main-container' sx={{borderRadius: '20px'}}>
                     <Grid container className='live-price-main-header'>
@@ -40,10 +38,9 @@ const MainContent = () => {
                             </Grid>
                         </Grid>
 
-                        <Grid item xs={2}   >
+                        <Grid item xs={2}>
                             <Link to={'/live'}> {`مشاهده همه`} </Link>
                         </Grid>
-
                     </Grid>
 
                     <Grid container>

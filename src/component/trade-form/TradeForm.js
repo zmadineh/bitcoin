@@ -56,7 +56,7 @@ const TradeForm = ({data, loading}) => {
     return (
         <Grid container justifyContent={"center"} gap={1}>
             <form onSubmit={handleFormSubmit}>
-                <Grid container item gap={1}>
+                <Grid container flexDirection={{xs: 'column', md: 'row'}} item gap={1}>
                     <TextField
                         id="selectCurrency"
                         label="انتخاب ارز"
@@ -94,7 +94,7 @@ const TradeForm = ({data, loading}) => {
                     />
                 </Grid>
 
-                <Grid container item gap={1} justifyContent={"center"} mt={'20px'}>
+                <Grid container item gap={1} justifyContent={"center"} flexDirection={{xs: 'column', md: 'row'}} mt={'20px'}>
                     <Button variant={"contained"} color={"secondary"} type="submit" onClick={() => setSubmitType('sale')}>
                         {`درخواست فروش`}
                     </Button>

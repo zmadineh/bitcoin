@@ -13,6 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import Close from "@mui/icons-material/Close";
 import Divider from "@mui/material/Divider";
 import Checkbox from "@mui/material/Checkbox";
+import Button from "@mui/material/Button";
 
 const SelectDialog = ({onClose, selectedValue, open, data, loading}) => {
 
@@ -27,6 +28,7 @@ const SelectDialog = ({onClose, selectedValue, open, data, loading}) => {
     }
 
     const handleListItemClick = (value) => {
+        console.log(value.id, selectedValue)
         onClose(value);
     };
 
@@ -50,7 +52,8 @@ const SelectDialog = ({onClose, selectedValue, open, data, loading}) => {
                     <List>
                         {data && loading ? data.filter(data => data.name.toLowerCase().includes(search)).map(coin => (
                             <ListItem key={coin.id}>
-                                <Grid component={"button"} container px={'20px'} py={'10px'} onClick={() => handleListItemClick(coin)}>
+                                <Button fullWidth color={'inherit'}>
+                                <Grid container px={'20px'} py={'10px'} dir={'rtl'} onClick={() => handleListItemClick(coin)}>
                                     <Grid item xs={6}>
                                         <Card image={coin.image} title={coin.name} description={coin.symbol} />
                                     </Grid>
@@ -60,9 +63,10 @@ const SelectDialog = ({onClose, selectedValue, open, data, loading}) => {
                                         <Typography variant={"body1"}>{convert_dollar_to_toman(coin.current_price)} تومان</Typography>
                                     </Grid>
                                     <Grid item xs={2}>
-                                        <Checkbox checked={coin.id === selectedValue} />
+                                        <Checkbox checked={(coin.id === selectedValue.id)} />
                                     </Grid>
                                 </Grid>
+                                </Button>
                             </ListItem>
                         )) : null}
                     </List>
