@@ -2,9 +2,6 @@ import React, {useMemo} from 'react';
 import {useDispatch} from "react-redux";
 import {addMark, removeMark} from "../../../toolkit/slices/bitcoin.slice";
 
-import {setFractionToNumberHelper} from "../../../helper/setFractionToNumber.helper";
-import {setColorForPercentageType} from "../../../helper/setColorForPercentageType";
-
 import {direction} from "../../../data/direction.data";
 
 import Card from "../card/Card";
@@ -16,14 +13,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import Star from '@mui/icons-material/Star';
 import PriceCell from "../price-cell/PriceCell";
+import PercentageCell from "../percentage-cell/PercentageCell";
 
 
 const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, expand = false, sort = 'incremental'}) => {
@@ -61,12 +56,8 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
                 return 'chart'
 
         if(title.type === 'percentage')
-            return (
-                <IconButton color={setColorForPercentageType(coin[title.label])}>
-                    {coin[title.label] < 0 ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
-                    <Typography>{setFractionToNumberHelper(coin[title.label], title.type)} % </Typography>
-                </IconButton>
-            )
+            return <PercentageCell coin={coin} title={title} />
+
         return coin[title.label]
     }
 
