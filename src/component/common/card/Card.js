@@ -7,7 +7,7 @@ const Card = ({title, description, image}) => {
 
     return(
         <Grid container item flexDirection={{xs: 'column', md: "row"}} spacing={2} justifyContent={"center"}>
-            <Grid container item xs={3}>
+            <Grid container item xs={2}>
                 <Avatar src={image} width={'30px'}/>
             </Grid>
             <Grid container item xs={8} mx={'10px'} flexDirection={"column"} alignItems={'flex-start'} >

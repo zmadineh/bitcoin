@@ -22,6 +22,7 @@ import IconButton from "@mui/material/IconButton";
 
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import Star from '@mui/icons-material/Star';
+import {setFractionToNumber} from "../../../helper/setFractionToNumber";
 
 
 const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, expand = false, sort = 'incremental'}) => {
@@ -55,10 +56,11 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
         else if (data > 0) return 'success'
     }
 
-    const setTableCellData = (title, coin) =>
-    {
+
+
+    const setTableCellData = (title, coin) => {
         if(title.type === 'price')
-            return (unit === 'toman' ? convert_dollar_to_toman(coin[title.label]) : coin[title.label])
+            return setFractionToNumber((unit === 'toman' ? convert_dollar_to_toman(coin[title.label]) : coin[title.label]), title.type)
 
         if(expand)
             if(title.type === 'mark')
@@ -70,7 +72,7 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
             return (
                 <IconButton color={setColorForPercentageType(coin[title.label])}>
                     {coin[title.label] < 0 ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
-                    <Typography>{coin[title.label]}</Typography>
+                    <Typography>{setFractionToNumber(coin[title.label], title.type)}</Typography>
                 </IconButton>
             )
         return coin[title.label]
@@ -88,7 +90,9 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
             <Table aria-label="live price table" dir={direction[dir].dir}>
                 <TableHead>
                     <TableRow>
-                        {header.map(item => (
+                        <TableCell align={direction[dir].align}>{header[0]}</TableCell>
+
+                        {header.slice(1).map(item => (
                             <TableCell key={item} align={"center"}>{item}</TableCell>
                         ))}
                     </TableRow>
