@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import NavMenu from "../nav-menu/NavMenu";
 import Button from "@mui/material/Button";
-import headerLogo from "../../assets/images/header-logo.svg";
+import headerLogo from "../../../assets/images/header-logo.svg";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import AppMenu from "../app-menu/AppMenu";

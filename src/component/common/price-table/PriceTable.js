@@ -1,9 +1,9 @@
 import React, {useMemo} from 'react';
 import Card from "../card/Card";
 import {useDispatch} from "react-redux";
-import {addMark, removeMark} from "../../toolkit/slices/bitcoin.slice";
-import {convert_dollar_to_toman} from "../../helper/converter";
-import {direction} from "../../data/direction";
+import {addMark, removeMark} from "../../../toolkit/slices/bitcoin.slice";
+import {convert_dollar_to_toman} from "../../../helper/converter";
+import {direction} from "../../../data/direction";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';

@@ -1,17 +1,17 @@
 import React, {useEffect, useMemo, useState} from "react";
 import Grid from "@mui/material/Grid";
-import Header from "../../component/header/Header";
+import Header from "../../component/common/header/Header";
 import {Container, Select} from "@mui/material";
 import Paper from "@mui/material/Paper";
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import Star from '@mui/icons-material/Star';
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import PriceTable from "../../component/price-table/PriceTable";
+import PriceTable from "../../component/common/price-table/PriceTable";
 import {useSelector} from "react-redux";
 import {useTheme} from "@mui/material/styles";
-import OutlinedSearchBox from "../../component/search-box/OutlinedSearchBox";
-import OrderSelect from "../../component/order-select/OrderSelect";
+import OutlinedSearchBox from "../../component/common/search-box/OutlinedSearchBox";
+import OrderSelect from "../../component/live-price/order-select/OrderSelect";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import ToggleButton from "@mui/material/ToggleButton";
 

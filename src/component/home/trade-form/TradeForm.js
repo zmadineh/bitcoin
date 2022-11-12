@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useSelector} from "react-redux";
-import {convert_dollar_to_toman, convert_toamn_to_dollar} from "../../helper/converter";
+import {convert_dollar_to_toman, convert_toamn_to_dollar} from "../../../helper/converter";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';

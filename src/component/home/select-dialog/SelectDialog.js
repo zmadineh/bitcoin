@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import OutlinedSearchBox from "../search-box/OutlinedSearchBox";
-import {convert_dollar_to_toman} from "../../helper/converter";
-import Card from "../card/Card";
+import OutlinedSearchBox from "../../common/search-box/OutlinedSearchBox";
+import {convert_dollar_to_toman} from "../../../helper/converter";
+import Card from "../../common/card/Card";
 import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
 import ListItem from '@mui/material/ListItem';

@@ -6,7 +6,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import {Equalizer} from "@mui/icons-material";
 import {Link} from "react-router-dom";
-import PriceTable from "../price-table/PriceTable";
+import PriceTable from "../../common/price-table/PriceTable";
 import Paper from "@mui/material/Paper";
 import {Container} from "@mui/material";
 

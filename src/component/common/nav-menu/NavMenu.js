@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import {pageList} from "../../data/page-list.data";
+import {pageList} from "../../../data/page-list.data";
 import {Link} from "react-router-dom"
 import Box from "@mui/material/Box";
 

@@ -1,9 +1,9 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import {fetchBitcoinDataAsync} from "../../toolkit/slices/bitcoin.slice";
-import Header from "../../component/header/Header";
-import Trade from "../../component/trade/Trade";
-import MainContent from "../../component/main-content/MainContent";
+import Header from "../../component/common/header/Header";
+import Trade from "../../component/home/trade/Trade";
+import MainContent from "../../component/home/main-content/MainContent";
 import Button from "@mui/material/Button";
 // import {fetchNewsDataAsync} from "../../toolkit/slices/news.slice";
 // import {useGetCryptosQuery, useGetGlobalStatQuery} from "../../toolkit/features/api/cryptoApi";
