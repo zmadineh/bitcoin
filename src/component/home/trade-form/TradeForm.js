@@ -8,6 +8,7 @@ import SelectDialog from "../select-dialog/SelectDialog";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import {setFractionToNumber} from "../../../helper/setFractionToNumber.helper";
 
 
 const TradeForm = ({data, loading}) => {
@@ -38,7 +39,7 @@ const TradeForm = ({data, loading}) => {
 
     const handleUnitChange = (e) => {
         const newUnit =  e.target.value < 0 ? 0 : e.target.value
-        setForm ({...form, unit: newUnit, price: selectedCoin.unitPrice * newUnit})
+        setForm ({...form, unit: newUnit, price: (selectedCoin.unitPrice * newUnit)})
     }
 
     const handlePriceChange = (e) => {

@@ -3,7 +3,7 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import {Avatar, Grid} from "@mui/material";
 
-const Card = ({title, description, image}) => {
+const Card = ({title, description, image, rank= 0, expand= false}) => {
 
     return(
         <Grid container item flexDirection={{xs: 'column', md: "row"}} spacing={2} justifyContent={"center"}>
@@ -12,7 +12,10 @@ const Card = ({title, description, image}) => {
             </Grid>
             <Grid container item xs={8} mx={'10px'} flexDirection={"column"} alignItems={'flex-start'} >
                 <Typography fontSize='18px'>{title}</Typography>
-                <Typography fontSize='15px'>{description}</Typography>
+                <Grid item display={"flex"} gap={1}>
+                    {expand ? <Typography fontSize='15px'>{rank}</Typography> : null }
+                    <Typography fontSize='15px'>{description}</Typography>
+                </Grid>
             </Grid>
         </Grid>
     )

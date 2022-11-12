@@ -87,7 +87,7 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
 
                             <TableRow key={coin.id}>
                                 <TableCell align={direction[dir].align}>
-                                    <Card title={coin.name} description={coin.symbol} image={coin.image}/>
+                                    <Card title={coin.name} description={coin.symbol} image={coin.image} rank={coin.market_cap_rank} expand={expand}/>
                                 </TableCell>
 
                                 {titles.map( title => (
