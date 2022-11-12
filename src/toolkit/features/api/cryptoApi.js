@@ -5,8 +5,12 @@ const cryptoApiHeaders = {
     'X-RapidAPI-Host': 'coingecko.p.rapidapi.com'
 }
 
-const baseUrl = 'https://coinranking1.p.rapidapi.com';
-const createRequest = (url) => ({ url, headers: cryptoApiHeaders});
+const cryptoApiParams = {
+   vs_currency: 'usd', order: 'market_cap_desc', per_page: '100', page: '1',
+}
+
+const baseUrl = 'https://coingecko.p.rapidapi.com';
+const createRequest = (url) => ({ url, headers: cryptoApiHeaders, params: cryptoApiParams});
 
 export const cryptoApi = createApi({
     reducerPath: 'cryptoApi', // what reducer for
@@ -16,11 +20,11 @@ export const cryptoApi = createApi({
         getCryptos:  builder.query({
             query: () => createRequest('/exchanges')
         }),
-        getGlobalStat: builder.query({
-            query: () => createRequest('/global')
+        getCoins: builder.query({
+            query: () => createRequest('/coins/markets')
         })
     })
 });
 
 
-export const { useGetCryptosQuery, useGetGlobalStatQuery } = cryptoApi;
+export const { useGetCryptosQuery, useGetCoinsQuery } = cryptoApi;

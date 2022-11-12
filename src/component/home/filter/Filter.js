@@ -1,14 +1,14 @@
 import React, {useState} from "react";
-import Box from "@mui/material/Box";
+
 import { styled } from '@mui/material/styles';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import {Grid} from "@mui/material";
-import IconButton from "@mui/material/IconButton";
-import Button from "@mui/material/Button";
+
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     maxWidth: '360px',
@@ -28,6 +28,7 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
         },
     },
 }));
+
 
 const Filter = ({growthSelect, setGrowthSelect}) => {
 

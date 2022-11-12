@@ -1,47 +1,37 @@
-import React, {useEffect, useMemo, useState} from "react";
-import Grid from "@mui/material/Grid";
+import React, {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+
+import {fetchBitcoinDataAsync} from "../../toolkit/slices/bitcoin.slice";
 import Header from "../../component/common/header/Header";
-import {Container, Select} from "@mui/material";
-import Paper from "@mui/material/Paper";
-import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
-import Star from '@mui/icons-material/Star';
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import LivePriceHeader from "../../component/live-price/live-price-header/LivePriceHeader";
 import PriceTable from "../../component/common/price-table/PriceTable";
-import {useSelector} from "react-redux";
+import {coinItemTitle} from "../../data/live-price-table-item-title.data";
+import {tableHeader} from "../../data/live-price-table-headers.data";
+
 import {useTheme} from "@mui/material/styles";
-import OutlinedSearchBox from "../../component/common/search-box/OutlinedSearchBox";
-import OrderSelect from "../../component/live-price/order-select/OrderSelect";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import ToggleButton from "@mui/material/ToggleButton";
+import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
 
 const LivePrice = () => {
 
     const theme = useTheme();
+    const dispatch = useDispatch();
+
     const data = useSelector((state) => state.bitcoin.data);
     const loading = useSelector((state) => state.bitcoin.isReceived);
-    const countOfDataToShow = 100;
-
-    const tableHeader = [
-        'ارز دیجیتال',
-        'قیمت خرید',
-        'قیمت فروش',
-        'نمودار',
-        'تغییرات',
-        'نشان کردن',
-    ];
-    const coinItemTitle = [
-        {label: 'low_24h', type: 'price'},
-        {label: 'high_24h', type: "price"},
-        {label: 'chart', type: "chart"},
-        {label: 'price_change_percentage_24h', type: "percentage"},
-        {label: 'mark', type: 'mark'}
-    ];
 
     const [search, setSearch] = useState('');
     const [priceOrder, setPriceOrder] = useState('incremental') // incremental or descending
-    const [unit, setUnit] = useState('toman') // or tether
+    const [unit, setUnit] = useState('toman') // toman or tether
     const [markedSelected, setMarkedSelected] = useState(false)
+    const countOfDataToShow = 100;
+
+    useEffect(() => {
+        dispatch(fetchBitcoinDataAsync())
+    }, []);
+
 
     const handleSearch = (e) => {
         setSearch(e.target.value.toString().toLowerCase())
@@ -64,7 +54,7 @@ const LivePrice = () => {
             if (search)
                 coins = coins.filter(coin => (coin.name.toLowerCase().includes(search)))
         }
-        return { coins, length: coins.length };
+        return { coins: coins, length: coins.length };
     }
 
     return(
@@ -79,55 +69,30 @@ const LivePrice = () => {
                            <Typography variant='h5'>{data ? filteredData().length : 0} ارز دیجیتال</Typography>
                    </Grid>
 
-                   <Grid container spacing={3} sx={{flexDirection: {xs: "column", md: "row"}}}>
-                       <Grid item xs={12} md={4}>
-                           <OutlinedSearchBox search={search} handleSearch={handleSearch} borderRadius={'5px'}/>
-                       </Grid>
-                       <Grid container item xs={12} md={4} spacing={2} sx={{flexDirection: {xs: "column", md: "row"}}}>
-                           <Grid item xs={12} md={6}>
-                               <Button variant="outlined" color={"secondary"} onClick={() => setMarkedSelected(!markedSelected)} sx={{height: '100%', width: '100%'}}>
-                                   <Grid display={"flex"} alignItems={"center"} gap={1}>
-                                       {markedSelected ? <Star color={'warning'}/> : <StarBorderOutlinedIcon /> }
-                                       <Typography variant={"h5"} noWrap> نشان شده ها</Typography>
-                                   </Grid>
-                               </Button>
-                           </Grid>
-
-                           <Grid item xs={12} md={6}>
-                                <OrderSelect Order={priceOrder} handleOrder={handleOrder} />
-                           </Grid>
-                       </Grid>
-                       <Grid item xs={12} md={4}>
-                           <ToggleButtonGroup
-                               dir={'ltr'}
-                               color="primary"
-                               value={unit}
-                               exclusive
-                               onChange={handleUnit}
-                               sx={{height: '100%'}}
-                               fullWidth
-                           >
-                               <ToggleButton value="tether" standard={"true"}>
-                                   تتر
-                               </ToggleButton>
-                               <ToggleButton value="toman" standard={"true"}>
-                                   تومان
-                               </ToggleButton>
-                           </ToggleButtonGroup>
-                       </Grid>
-                   </Grid>
-
-                   <PriceTable
-                       dir={'ltr'}
-                       header={tableHeader}
-                       titles={coinItemTitle}
-                       data={filteredData().coins}
+                   <LivePriceHeader
+                       search={search}
+                       handleSearch={handleSearch}
+                       markedSelected={markedSelected}
+                       setMarkedSelected={setMarkedSelected}
+                       priceOrder={priceOrder}
+                       handleOrder={handleOrder}
                        unit={unit}
-                       loading={loading}
-                       count={countOfDataToShow}
-                       expand={true}
-                       sort={priceOrder}
+                       handleUnit={handleUnit}
                    />
+
+                   {data ?
+                       <PriceTable
+                           dir={'ltr'}
+                           header={tableHeader}
+                           titles={coinItemTitle}
+                           data={filteredData().coins}
+                           unit={unit}
+                           loading={loading}
+                           count={countOfDataToShow}
+                           expand={true}
+                           sort={priceOrder}
+                       />
+                       : <Grid container justifyContent={"center"}>...loading</Grid> }
                </Paper>
            </Container>
        </Grid>

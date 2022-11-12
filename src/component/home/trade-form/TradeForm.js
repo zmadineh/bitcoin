@@ -1,27 +1,30 @@
 import React, {useState} from 'react';
 import {useSelector} from "react-redux";
-import {convert_dollar_to_toman, convert_toamn_to_dollar} from "../../../helper/converter";
+
+import {convert_dollar_to_toman} from "../../../helper/converter";
+
+import SelectDialog from "../select-dialog/SelectDialog";
+
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-import SelectDialog from "../select-dialog/SelectDialog";
 
 
 const TradeForm = ({data, loading}) => {
 
-    const coinIsReceived = useSelector((state) => state.bitcoin.isReceived);
     const coinData = useSelector((state) => state.bitcoin.data);
 
-    const initialCoin = coinData ? coinData.filter(coin => coin.id === 'bitcoin')[0] : {name: "", symbol: "", image: "", price: 0};
-
     const [open, setOpen] = useState(false);
+    const initialCoin = coinData ? coinData.filter(coin => coin.id === 'bitcoin')[0] : {name: "", symbol: "", image: "", price: 0};
+    const [selectedCoin, setSelectedCoin] = useState({id: 'bitcoin', unitPrice: convert_dollar_to_toman(initialCoin.current_price)});
+    const [submitType, setSubmitType] = useState('sale') // sale or buy
+
     const [form, setForm] = useState( {
         currency: 'bitcoin',
         unit: 1,
         price: initialCoin.current_price,
     })
-    const [selectedCoin, setSelectedCoin] = useState({id: 'bitcoin', unitPrice: convert_dollar_to_toman(initialCoin.current_price)});
-    const [submitType, setSubmitType] = useState('sale') // sals or buy
+
 
     const handleClickOpen = () => {
         setOpen(true);

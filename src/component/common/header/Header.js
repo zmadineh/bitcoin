@@ -1,18 +1,15 @@
 import React from "react";
+
+import AppMenu from "../app-menu/AppMenu";
+
+import headerLogo from "../../../assets/images/header-logo.svg";
+
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import MenuIcon from "@mui/icons-material/Menu";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import NavMenu from "../nav-menu/NavMenu";
 import Button from "@mui/material/Button";
-import headerLogo from "../../../assets/images/header-logo.svg";
 import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import AppMenu from "../app-menu/AppMenu";
-import {Container} from "@mui/material";
+import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
-import {useTheme} from "@mui/material/styles";
 
 const Header = ({color}) => {
 

@@ -1,11 +1,14 @@
-import * as React from 'react';
+import React from 'react';
+
+import NavMenu from "../nav-menu/NavMenu";
+import DrawerContent from "../drawer-content/DrawerContent";
+
 import Drawer from '@mui/material/Drawer';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import NavMenu from "../nav-menu/NavMenu";
 import Box from "@mui/material/Box";
-import DrawerContent from "../drawer-content/DrawerContent";
+
 
 const AppMenu = () => {
     const [state, setState] = React.useState(false);

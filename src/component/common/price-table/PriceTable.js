@@ -1,9 +1,13 @@
 import React, {useMemo} from 'react';
-import Card from "../card/Card";
 import {useDispatch} from "react-redux";
 import {addMark, removeMark} from "../../../toolkit/slices/bitcoin.slice";
+
 import {convert_dollar_to_toman} from "../../../helper/converter";
-import {direction} from "../../../data/direction";
+
+import {direction} from "../../../data/direction.data";
+
+import Card from "../card/Card";
+
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -11,14 +15,18 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import IconButton from "@mui/material/IconButton";
-import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
-import Star from '@mui/icons-material/Star';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+
+import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
+import Star from '@mui/icons-material/Star';
+
 
 const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, expand = false, sort = 'incremental'}) => {
+
+    const dispatch = useDispatch();
 
     const sortedCoinsIncremental  = useMemo(() => {
         return( data ?  [...data].sort((a, b) => a.price_change_percentage_24h - b.price_change_percentage_24h) : data);
@@ -37,7 +45,6 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
     }, [data]);
 
 
-    const dispatch = useDispatch();
     const handelMark = (coin) => {
         dispatch(coin.marked ? removeMark(coin) : addMark(coin))
     }
@@ -66,11 +73,10 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
                     <Typography>{coin[title.label]}</Typography>
                 </IconButton>
             )
-
         return coin[title.label]
     }
 
-    const selectDataToShow = (data) => {
+    const selectDataToShow = () => {
         if(expand)
             return (sort === "incremental" ? sortedCoinsLeastPrice : sortedCoinsMostPrice).slice(0, count)
         else
@@ -90,7 +96,7 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
 
                 {data && loading ?
                     <TableBody>
-                        {selectDataToShow(data).map(coin => (
+                        {selectDataToShow().map(coin => (
 
                             <TableRow key={coin.id}>
                                 <TableCell align={direction[dir].align}>

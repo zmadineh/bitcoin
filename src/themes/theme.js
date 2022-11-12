@@ -15,23 +15,6 @@ export const theme = createTheme({
                 }
             }
         },
-        MuiButton: {
-            variants: [
-                {
-                    props: {variant: 'mainButton'},
-                    style: {
-                        color: '#fff',
-                        backgroundColor: '#50C2C9',
-                        borderRadius: '20px',
-                        textAlign: 'center',
-                        height: 60,
-                        '&:hover': {
-                            backgroundColor: '#50C2C9',
-                        }
-                    }
-                },
-            ]
-        }
     },
 
     // breakpoints: {
@@ -121,6 +104,7 @@ export const theme = createTheme({
         },
     },
 
+    // shadows: Array(25).fill('none')
     shadows: [
         '0px 0px 4px rgba(0,0,0,.14)',
         '0px 12px 32px rgba(0,0,0,.04)'

@@ -1,7 +1,10 @@
 import React from "react";
 import {useSelector} from "react-redux";
+
 import TradeForm from "../trade-form/TradeForm";
+
 import trade_logo from "../../../assets/images/logo.jpg";
+
 import Grid from "@mui/material/Grid";
 
 const Trade = () => {

@@ -1,14 +1,18 @@
 import React, {useState} from "react";
-import Filter from "../filter/Filter";
+import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
+
+import Filter from "../filter/Filter";
+import PriceTable from "../../common/price-table/PriceTable";
+import {tableHeader} from "../../../data/home-table-headers.data";
+import {coinItemTitle} from "../../../data/home-table-item-title.data";
 import './main-content.css';
+
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import {Equalizer} from "@mui/icons-material";
-import {Link} from "react-router-dom";
-import PriceTable from "../../common/price-table/PriceTable";
+import Equalizer from "@mui/icons-material/Equalizer";
 import Paper from "@mui/material/Paper";
-import {Container} from "@mui/material";
+import Container from "@mui/material/Container";
 
 const MainContent = () => {
 
@@ -17,15 +21,9 @@ const MainContent = () => {
     const [growthSelect, setGrowthSelect] = useState('incremental');
 
     const countOfDataToShow = 10;
-    const tableHeader = ['ارز دیجیتال','قیمت خرید','قیمت فروش','تغییرات'];
-    const coinItemTitle = [
-        {label: 'low_24h', type: 'price'},
-        {label: 'high_24h', type: "price"},
-        {label: 'price_change_percentage_24h', type: "percentage"},
-    ];
 
     return (
-        <Grid style={{backgroundColor: 'backgrounk.secondary'}}>
+        <Grid style={{backgroundColor: 'background.secondary'}}>
             <Container sx={{padding: '50px 20px'}}>
                 <Paper dir={'rtl'} className='live-price-main-container' sx={{borderRadius: '20px'}}>
                     <Grid container className='live-price-main-header'>
@@ -44,7 +42,9 @@ const MainContent = () => {
                     </Grid>
 
                     <Grid container>
-                        <Filter growthSelect={growthSelect} setGrowthSelect={setGrowthSelect}/>
+                        <Filter
+                            growthSelect={growthSelect}
+                            setGrowthSelect={setGrowthSelect}/>
                     </Grid>
 
                     <PriceTable
