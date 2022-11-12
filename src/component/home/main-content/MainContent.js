@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import Equalizer from "@mui/icons-material/Equalizer";
 import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
 
 const MainContent = () => {
 
@@ -37,7 +38,13 @@ const MainContent = () => {
                         </Grid>
 
                         <Grid item xs={2}>
-                            <Link to={'/live'}> {`مشاهده همه`} </Link>
+                            <Link to={'/live'}>
+                                <Button>
+                                    <Typography variant={'h5'}>
+                                        {`مشاهده همه`}
+                                    </Typography>
+                                </Button>
+                            </Link>
                         </Grid>
                     </Grid>
 
