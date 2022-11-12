@@ -1,7 +1,7 @@
 import React from "react";
 
 import {setColorForPercentageType} from "../../../helper/setColorForPercentageType";
-import {setFractionToNumberHelper} from "../../../helper/setFractionToNumber.helper";
+import {setFractionToNumber} from "../../../helper/setFractionToNumber.helper";
 
 import IconButton from "@mui/material/IconButton";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -12,7 +12,7 @@ const PercentageCell = ({coin, title}) => {
     return(
         <IconButton color={setColorForPercentageType(coin[title.label])}>
             {coin[title.label] < 0 ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
-            <Typography>{setFractionToNumberHelper(coin[title.label], title.type)} % </Typography>
+            <Typography>{setFractionToNumber(coin[title.label], title.type)} % </Typography>
         </IconButton>
     )
 }

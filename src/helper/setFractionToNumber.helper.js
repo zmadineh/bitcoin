@@ -1,6 +1,6 @@
 import {financialHelper} from "./financial.helper";
 
-export const setFractionToNumberHelper = (data, dataType) => {
+export const setFractionToNumber = (data, dataType) => {
     if(dataType === 'price')
         if(data < 0.01)
             return financialHelper(data, 8)
