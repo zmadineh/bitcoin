@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useSelector} from "react-redux";
 
-import {convert_dollar_to_toman} from "../../../helper/converter";
+import {convert_dollar_to_toman} from "../../../helper/converter.helper";
 
 import SelectDialog from "../select-dialog/SelectDialog";
 

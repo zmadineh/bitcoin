@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import {useDispatch} from "react-redux";
 import {addMark, removeMark} from "../../../toolkit/slices/bitcoin.slice";
 
-import {convert_dollar_to_toman} from "../../../helper/converter";
+import {convert_dollar_to_toman} from "../../../helper/converter.helper";
 
 import {direction} from "../../../data/direction.data";
 
@@ -22,7 +22,7 @@ import IconButton from "@mui/material/IconButton";
 
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import Star from '@mui/icons-material/Star';
-import {setFractionToNumber} from "../../../helper/setFractionToNumber";
+import {setFractionToNumberHelper} from "../../../helper/setFractionToNumber.helper";
 
 
 const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, expand = false, sort = 'incremental'}) => {
@@ -60,7 +60,7 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
 
     const setTableCellData = (title, coin) => {
         if(title.type === 'price')
-            return setFractionToNumber((unit === 'toman' ? convert_dollar_to_toman(coin[title.label]) : coin[title.label]), title.type)
+            return setFractionToNumberHelper((unit === 'toman' ? convert_dollar_to_toman(coin[title.label]) : coin[title.label]), title.type)
 
         if(expand)
             if(title.type === 'mark')
@@ -72,7 +72,7 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
             return (
                 <IconButton color={setColorForPercentageType(coin[title.label])}>
                     {coin[title.label] < 0 ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
-                    <Typography>{setFractionToNumber(coin[title.label], title.type)}</Typography>
+                    <Typography>{setFractionToNumberHelper(coin[title.label], title.type)}</Typography>
                 </IconButton>
             )
         return coin[title.label]

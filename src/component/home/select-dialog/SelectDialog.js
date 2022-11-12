@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-import {convert_dollar_to_toman} from "../../../helper/converter";
+import {convert_dollar_to_toman} from "../../../helper/converter.helper";
 
 import OutlinedSearchBox from "../../common/search-box/OutlinedSearchBox";
 import Card from "../../common/card/Card";
