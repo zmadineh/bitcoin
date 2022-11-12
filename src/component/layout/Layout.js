@@ -1,10 +1,19 @@
 import React from "react";
+import {Outlet} from "react-router-dom";
+
 import Header from "../common/header/Header";
+import Grid from "@mui/material/Grid";
 
 const Layout = () => {
 
     return (
-        <Header />
+        <Grid>
+            <Header />
+
+            <Outlet />
+        </Grid>
+
+
     )
 }
 

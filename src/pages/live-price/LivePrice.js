@@ -59,7 +59,7 @@ const LivePrice = () => {
 
     return(
        <Grid container bgcolor={theme.palette.background.secondary}>
-           <Header color={'background.secondary'} />
+           {/*<Header color={'background.secondary'} />*/}
 
            <Container sx={{padding: '50px 20px', marginTop: '150px'}}>
                <Paper dir={'rtl'} className='live-price-main-container' sx={{borderRadius: '20px'}} >
