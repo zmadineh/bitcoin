@@ -41,7 +41,7 @@ const SelectDialog = ({onClose, selectedValue, open, data, loading}) => {
             <Dialog onClose={handleClose} open={open} scroll={'paper'}>
                 <Paper>
                     <Toolbar>
-                        <Grid container width={'500px'} p={2}>
+                        <Grid container width={'400px'} p={2}>
                             <Grid container item xs={12} justifyContent={"space-between"} alignItems={"center"} direction={"row-reverse"}>
                                 <Typography variant={'h6'}>انتخاب ارز</Typography>
                                 <IconButton onClick={handleClose}><Close /></IconButton>
@@ -62,18 +62,18 @@ const SelectDialog = ({onClose, selectedValue, open, data, loading}) => {
                             <ListItem key={coin.id}>
                                 <Button fullWidth color={'inherit'}>
                                 <Grid container px={'20px'} py={'10px'} dir={'rtl'} onClick={() => handleListItemClick(coin)}>
-                                    <Grid item xs={7}>
+                                    <Grid item xs={6}>
                                         <Card
                                             image={coin.image}
                                             title={coin.name}
                                             description={coin.symbol} />
                                     </Grid>
 
-                                    <Grid item xs={4} display={"flex"} flexDirection={"column"} alignItems={"center"}>
-                                        <Typography variant={'h3'}>قیمت خرید</Typography>
+                                    <Grid item xs={4} display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"}>
+                                        <Typography variant={'h4'}>قیمت خرید</Typography>
                                         <Typography variant={"body1"}>{ setFractionToNumber(convert_dollar_to_toman(coin.current_price), 'price') } تومان</Typography>
                                     </Grid>
-                                    <Grid item xs={1}>
+                                    <Grid item xs={1} display={"flex"} alignItems={"center"}>
                                         <Checkbox checked={(coin.id === selectedValue.id)} />
                                     </Grid>
                                 </Grid>

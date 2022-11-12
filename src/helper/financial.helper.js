@@ -1,3 +1,7 @@
+const convertToNumber = (number) => {
+    return Number(number).toLocaleString();
+}
+
 export const financialHelper = (x, fraction) => {
-    return Number.parseFloat(x).toFixed(fraction);
+    return convertToNumber(Number.parseFloat(x).toFixed(fraction));
 }
