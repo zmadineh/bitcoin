@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import {fetchBitcoinDataAsync} from "../../toolkit/slices/bitcoin.slice";
-import Header from "../../component/common/header/Header";
+import Header from "../../component/layout/header/Header";
 import LivePriceHeader from "../../component/live-price/live-price-header/LivePriceHeader";
 import PriceTable from "../../component/common/price-table/PriceTable";
 import {coinItemTitle} from "../../data/live-price-table-item-title.data";

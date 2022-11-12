@@ -1,7 +1,7 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import {fetchBitcoinDataAsync} from "../../toolkit/slices/bitcoin.slice";
-import Header from "../../component/common/header/Header";
+import Header from "../../component/layout/header/Header";
 import Trade from "../../component/home/trade/Trade";
 import MainContent from "../../component/home/main-content/MainContent";
 import {fetchNewsDataAsync} from "../../toolkit/slices/news.slice";

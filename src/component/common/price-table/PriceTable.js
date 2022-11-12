@@ -2,7 +2,8 @@ import React, {useMemo} from 'react';
 import {useDispatch} from "react-redux";
 import {addMark, removeMark} from "../../../toolkit/slices/bitcoin.slice";
 
-import {convert_dollar_to_toman} from "../../../helper/converter.helper";
+import {setFractionToNumberHelper} from "../../../helper/setFractionToNumber.helper";
+import {setColorForPercentageType} from "../../../helper/setColorForPercentageType";
 
 import {direction} from "../../../data/direction.data";
 
@@ -22,13 +23,12 @@ import IconButton from "@mui/material/IconButton";
 
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import Star from '@mui/icons-material/Star';
-import {setFractionToNumberHelper} from "../../../helper/setFractionToNumber.helper";
+import PriceCell from "../price-cell/PriceCell";
 
 
 const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, expand = false, sort = 'incremental'}) => {
 
     const dispatch = useDispatch();
-
     const sortedCoinsIncremental  = useMemo(() => {
         return( data ?  [...data].sort((a, b) => a.price_change_percentage_24h - b.price_change_percentage_24h) : data);
     }, [data]);
@@ -50,17 +50,9 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
         dispatch(coin.marked ? removeMark(coin) : addMark(coin))
     }
 
-    const setColorForPercentageType = data => {
-        if (data === 0) return 'inherit'
-        else if (data < 0) return 'error'
-        else if (data > 0) return 'success'
-    }
-
-
-
     const setTableCellData = (title, coin) => {
         if(title.type === 'price')
-            return setFractionToNumberHelper((unit === 'toman' ? convert_dollar_to_toman(coin[title.label]) : coin[title.label]), title.type)
+            return <PriceCell unit={unit} coin={coin} title={title} />
 
         if(expand)
             if(title.type === 'mark')
@@ -72,7 +64,7 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
             return (
                 <IconButton color={setColorForPercentageType(coin[title.label])}>
                     {coin[title.label] < 0 ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
-                    <Typography>{setFractionToNumberHelper(coin[title.label], title.type)}</Typography>
+                    <Typography>{setFractionToNumberHelper(coin[title.label], title.type)} % </Typography>
                 </IconButton>
             )
         return coin[title.label]

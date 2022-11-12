@@ -1,6 +1,6 @@
 import React from "react";
 
-import AppMenu from "../app-menu/AppMenu";
+import AppMenu from "../../common/app-menu/AppMenu";
 
 import headerLogo from "../../../assets/images/header-logo.svg";
 
