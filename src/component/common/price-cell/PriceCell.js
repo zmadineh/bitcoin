@@ -7,11 +7,11 @@ import {getUnit} from "../../../helper/getUnit.helper";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
-const PriceCell = ({coin, unit, title}) => {
+const PriceCell = ({price, unit, type}) => {
     return(
         <Grid item display={"flex"} justifyContent={"center"} gap={1}>
             <Typography>
-                {setFractionToNumber((unit === 'toman' ? convert_dollar_to_toman(coin[title.label]) : coin[title.label]), title.type)}
+                {setFractionToNumber((unit === 'toman' ? convert_dollar_to_toman(price) : price), type)}
             </Typography>
             <Typography>{getUnit(unit)}</Typography>
         </Grid>

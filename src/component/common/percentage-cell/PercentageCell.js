@@ -7,13 +7,14 @@ import IconButton from "@mui/material/IconButton";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
 const PercentageCell = ({percentage, type}) => {
     return(
-        <IconButton color={setColorForPercentageType(percentage)}>
+        <Button color={setColorForPercentageType(percentage)} sx={{borderRadius: '20px'}}>
             {percentage < 0 ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
             <Typography>{setFractionToNumber(percentage, type)} % </Typography>
-        </IconButton>
+        </Button>
     )
 }
 

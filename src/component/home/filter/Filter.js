@@ -37,14 +37,13 @@ const Filter = ({growthSelect, setGrowthSelect}) => {
     }
 
     return (
-        <Grid item xs={12} borderRadius={2}>
+        <Grid item borderRadius={2}>
             <StyledToggleButtonGroup
                 size={'small'}
                 value={growthSelect}
                 exclusive
                 onChange={handleChange}
                 aria-label="growth select"
-
             >
                 <ToggleButton value="descending" standard={"true"}>
                         <Grid container gap={1}>

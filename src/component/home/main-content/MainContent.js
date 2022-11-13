@@ -27,56 +27,56 @@ const MainContent = () => {
         <Grid sx={{bgcolor: 'background.secondary'}}>
             <Container sx={{padding: '50px 20px'}}>
                 <Paper dir={'rtl'}  sx={{borderRadius: '20px', padding: '40px'}}>
-                    <Grid container spacing={2}>
-                    <Grid item container justifyContent={"space-between"} alignItems={"center"}>
+                    <Grid container spacing={4}>
+                        <Grid item container justifyContent={"space-between"} alignItems={"center"}>
 
-                        <Grid item xs={10} display={"flex"} alignItems={"center"} gap={2}>
-                            <Equalizer color="success" />
-                            <Grid>
-                                <Typography variant='h5'>{`قیمت لحظه ای`}</Typography>
-                                <Typography variant='h6'>{`در 24 ساعت گذشته`}</Typography>
+                            <Grid item xs={10} display={"flex"} alignItems={"center"} gap={2}>
+                                <Equalizer color="success" />
+                                <Grid>
+                                    <Typography variant='h5'>{`قیمت لحظه ای`}</Typography>
+                                    <Typography variant='h6'>{`در 24 ساعت گذشته`}</Typography>
+                                </Grid>
+                            </Grid>
+
+                            <Grid item xs={2} display={"flex"} justifyContent={"center"}>
+                                <Link to={'/live'}>
+                                    <Button>
+                                        <Typography variant={'h5'}>{`مشاهده همه`}</Typography>
+                                    </Button>
+                                </Link>
                             </Grid>
                         </Grid>
 
-                        <Grid item xs={2} display={"flex"} justifyContent={"center"}>
-                            <Link to={'/live'}>
-                                <Button>
-                                    <Typography variant={'h5'}>{`مشاهده همه`}</Typography>
-                                </Button>
-                            </Link>
+                        <Grid item container justifyContent={{xs: 'center', md: 'flex-start'}}>
+                            <Filter
+                                growthSelect={growthSelect}
+                                setGrowthSelect={setGrowthSelect}/>
                         </Grid>
-                    </Grid>
-
-                    <Grid item container>
-                        <Filter
-                            growthSelect={growthSelect}
-                            setGrowthSelect={setGrowthSelect}/>
-                    </Grid>
 
 
-                    <Grid item container>
-                        <Grid item container display={{xs: 'flex', md: 'none'}}>
-                            <CartList
-                                data={data}
-                                unit={'toman'}
-                                loading={loading}
-                                count={countOfDataToShow}
-                                sort={growthSelect}
-                            />
+                        <Grid item container>
+                            <Grid item container display={{xs: 'flex', md: 'none'}}>
+                                <CartList
+                                    data={data}
+                                    unit={'toman'}
+                                    loading={loading}
+                                    count={countOfDataToShow}
+                                    sort={growthSelect}
+                                />
+                            </Grid>
+                            <Grid item container display={{xs: 'none', md: 'flex'}}>
+                                <PriceTable
+                                    dir={'rtl'}
+                                    header={tableHeader}
+                                    titles={coinItemTitle}
+                                    data={data}
+                                    unit={'toman'}
+                                    loading={loading}
+                                    count={countOfDataToShow}
+                                    sort={growthSelect}
+                                />
+                            </Grid>
                         </Grid>
-                        <Grid item container display={{xs: 'none', md: 'flex'}}>
-                            <PriceTable
-                                dir={'rtl'}
-                                header={tableHeader}
-                                titles={coinItemTitle}
-                                data={data}
-                                unit={'toman'}
-                                loading={loading}
-                                count={countOfDataToShow}
-                                sort={growthSelect}
-                            />
-                        </Grid>
-                    </Grid>
 
                     </Grid>
                 </Paper>

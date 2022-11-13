@@ -47,7 +47,7 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
 
     const setTableCellData = (title, coin) => {
         if(title.type === 'price')
-            return <PriceCell unit={unit} coin={coin} title={title} />
+            return <PriceCell unit={unit} price={coin[title.label]} type={title.type} />
 
         if(expand)
             if(title.type === 'mark')
