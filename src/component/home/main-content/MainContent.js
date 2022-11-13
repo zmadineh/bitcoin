@@ -6,7 +6,6 @@ import Filter from "../filter/Filter";
 import PriceTable from "../../common/price-table/PriceTable";
 import {tableHeader} from "../../../data/home-table-headers.data";
 import {coinItemTitle} from "../../../data/home-table-item-title.data";
-import './main-content.css';
 
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
@@ -14,6 +13,7 @@ import Equalizer from "@mui/icons-material/Equalizer";
 import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
+import CartList from "../cart-list/CartList";
 
 const MainContent = () => {
 
@@ -24,10 +24,11 @@ const MainContent = () => {
     const countOfDataToShow = 10;
 
     return (
-        <Grid style={{backgroundColor: 'background.secondary'}}>
+        <Grid sx={{bgcolor: 'background.secondary'}}>
             <Container sx={{padding: '50px 20px'}}>
-                <Paper dir={'rtl'} className='live-price-main-container' sx={{borderRadius: '20px'}}>
-                    <Grid container className='live-price-main-header'>
+                <Paper dir={'rtl'}  sx={{borderRadius: '20px', padding: '40px'}}>
+                    <Grid container spacing={2}>
+                    <Grid item container justifyContent={"space-between"} alignItems={"center"}>
 
                         <Grid item xs={10} display={"flex"} alignItems={"center"} gap={2}>
                             <Equalizer color="success" />
@@ -37,33 +38,47 @@ const MainContent = () => {
                             </Grid>
                         </Grid>
 
-                        <Grid item xs={2}>
+                        <Grid item xs={2} display={"flex"} justifyContent={"center"}>
                             <Link to={'/live'}>
                                 <Button>
-                                    <Typography variant={'h5'}>
-                                        {`مشاهده همه`}
-                                    </Typography>
+                                    <Typography variant={'h5'}>{`مشاهده همه`}</Typography>
                                 </Button>
                             </Link>
                         </Grid>
                     </Grid>
 
-                    <Grid container>
+                    <Grid item container>
                         <Filter
                             growthSelect={growthSelect}
                             setGrowthSelect={setGrowthSelect}/>
                     </Grid>
 
-                    <PriceTable
-                        dir={'rtl'}
-                        header={tableHeader}
-                        titles={coinItemTitle}
-                        data={data}
-                        unit={'toman'}
-                        loading={loading}
-                        count={countOfDataToShow}
-                        sort={growthSelect}
-                    />
+
+                    <Grid item container>
+                        <Grid item container display={{xs: 'flex', md: 'none'}}>
+                            <CartList
+                                data={data}
+                                unit={'toman'}
+                                loading={loading}
+                                count={countOfDataToShow}
+                                sort={growthSelect}
+                            />
+                        </Grid>
+                        <Grid item container display={{xs: 'none', md: 'flex'}}>
+                            <PriceTable
+                                dir={'rtl'}
+                                header={tableHeader}
+                                titles={coinItemTitle}
+                                data={data}
+                                unit={'toman'}
+                                loading={loading}
+                                count={countOfDataToShow}
+                                sort={growthSelect}
+                            />
+                        </Grid>
+                    </Grid>
+
+                    </Grid>
                 </Paper>
             </Container>
         </Grid>

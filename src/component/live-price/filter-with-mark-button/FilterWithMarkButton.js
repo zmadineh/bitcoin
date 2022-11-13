@@ -9,7 +9,7 @@ import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
 
 const FilterWithMarkButton = ({ markedSelected, setMarkedSelected }) => {
     return(
-        <Button variant="outlined" color={"secondary"} onClick={() => setMarkedSelected(!markedSelected)} sx={{height: '100%', width: '100%'}}>
+        <Button variant="outlined" color={"secondary"} onClick={() => setMarkedSelected(!markedSelected)} sx={{height: '100%', width: '100%', minHeight: '53px'}}>
             <Grid display={"flex"} alignItems={"center"} gap={1}>
                 {markedSelected ? <Star color={'warning'}/> : <StarBorderOutlinedIcon /> }
                 <Typography variant={"h5"} noWrap> نشان شده ها</Typography>

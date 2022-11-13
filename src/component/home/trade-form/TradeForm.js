@@ -8,7 +8,6 @@ import SelectDialog from "../select-dialog/SelectDialog";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-import {setFractionToNumber} from "../../../helper/setFractionToNumber.helper";
 
 
 const TradeForm = ({data, loading}) => {

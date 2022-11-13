@@ -10,7 +10,7 @@ import ToggleButton from "@mui/material/ToggleButton";
 
 const LivePriceHeader = ({search, handleSearch, markedSelected, setMarkedSelected, priceOrder, handleOrder, unit, handleUnit}) => {
     return(
-        <Grid container spacing={3} sx={{flexDirection: {xs: "column", md: "row"}}}>
+        <Grid container spacing={3} justifyContent={"space-between"}>
             <Grid item xs={12} md={4}>
                 <OutlinedSearchBox
                     search={search}
@@ -18,7 +18,8 @@ const LivePriceHeader = ({search, handleSearch, markedSelected, setMarkedSelecte
                     borderRadius={'5px'}
                 />
             </Grid>
-            <Grid container item xs={12} md={4} spacing={2} sx={{flexDirection: {xs: "column", md: "row"}}}>
+
+            <Grid item xs={12} sm={6} md={4} gap={2} display={"flex"} flexDirection={{xs: 'column', sm: 'row'}}>
                 <Grid item xs={12} md={6}>
                     <FilterWithMarkButton
                         markedSelected={markedSelected}
@@ -34,7 +35,7 @@ const LivePriceHeader = ({search, handleSearch, markedSelected, setMarkedSelecte
                 </Grid>
             </Grid>
 
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} sm={6} md={4}>
                 <ToggleButtonGroup
                     dir={'ltr'}
                     color="primary"

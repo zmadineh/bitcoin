@@ -56,7 +56,7 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
                 return 'chart'
 
         if(title.type === 'percentage')
-            return <PercentageCell coin={coin} title={title} />
+            return <PercentageCell percentage={coin[title.label]} type={title.type} />
 
         return coin[title.label]
     }
