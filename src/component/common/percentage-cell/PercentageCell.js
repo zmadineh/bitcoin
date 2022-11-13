@@ -11,7 +11,7 @@ import Button from "@mui/material/Button";
 
 const PercentageCell = ({percentage, type}) => {
     return(
-        <Button color={setColorForPercentageType(percentage)} sx={{borderRadius: '20px'}}>
+        <Button color={setColorForPercentageType(percentage)} sx={{borderRadius: '20px', width: '100%', height: '100%',}}>
             {percentage < 0 ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
             <Typography>{setFractionToNumber(percentage, type)} % </Typography>
         </Button>

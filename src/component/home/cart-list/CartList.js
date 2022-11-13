@@ -17,7 +17,7 @@ const CartList = ({data, unit, loading, count, sort}) => {
     }
 
     return (
-        <Grid>
+        <Grid container flexDirection={"column"} overflow={"scroll"} height={'25vh'} gap={2}>
             {data ? selectDataToShow().map(coin => (
                 <Cart
                     key={coin.id}
