@@ -19,6 +19,7 @@ import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import Star from '@mui/icons-material/Star';
 import PriceCell from "../price-cell/PriceCell";
 import PercentageCell from "../percentage-cell/PercentageCell";
+import Typography from "@mui/material/Typography";
 
 
 const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, expand = false, sort = 'incremental'}) => {
@@ -70,13 +71,17 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
 
     return (
         <TableContainer component={Paper}>
-            <Table aria-label="live price table" dir={direction[dir].dir}>
+            <Table aria-label="live price table" stickyHeader  dir={direction[dir].dir}>
                 <TableHead>
                     <TableRow>
-                        <TableCell align={direction[dir].align}>{header[0]}</TableCell>
+                        <TableCell align={direction[dir].align}>
+                            <Typography variant={'h5'}>{header[0]}</Typography>
+                        </TableCell>
 
                         {header.slice(1).map(item => (
-                            <TableCell key={item} align={"center"}>{item}</TableCell>
+                            <TableCell key={item} align={"center"}>
+                                <Typography variant={'h5'}>{item}</Typography>
+                            </TableCell>
                         ))}
                     </TableRow>
                 </TableHead>
@@ -85,7 +90,7 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
                     <TableBody>
                         {selectDataToShow().map(coin => (
 
-                            <TableRow key={coin.id}>
+                            <TableRow hover key={coin.id}>
                                 <TableCell align={direction[dir].align}>
                                     <Card title={coin.name} description={coin.symbol} image={coin.image} rank={coin.market_cap_rank} expand={expand}/>
                                 </TableCell>

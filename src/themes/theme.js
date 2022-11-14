@@ -59,7 +59,7 @@ export const theme = createTheme({
 
         },
         text: {
-            primary: '#212124',
+            primary: '#323238',
             secondary: '#00000099',
             mute: '#bdbdbd'
 
@@ -71,36 +71,41 @@ export const theme = createTheme({
         },
     },
     typography: {
-        fontFamily: 'Poppins',
+        fontFamily: [
+            'IRANSans',
+            // 'Poppins',
+            // 'sans-serif',
+        ].join(','),
+
         h1: {
-            fontSize: '27px',
+            fontSize: '26px',
         },
         h2: {
-            fontSize: '24px',
+            fontSize: '23px',
         },
         h3: {
-            fontSize: '22px',
+            fontSize: '21px',
         },
         h4: {
-            fontSize: '20px',
-        },
-        h5: {
             fontSize: '18px',
         },
-        h6: {
-            fontSize: '16px',
+        h5: {
+            fontSize: '15px',
         },
-        body1: {
+        h6: {
             fontSize: '14px',
         },
+        body1: {
+            fontSize: '13px',
+        },
         body2: {
-            fontSize: '12px',
+            fontSize: '11px',
         },
         caption: {
-            fontSize: '10px',
+            fontSize: '9px',
         },
         overline: {
-            fontSize: '9px',
+            fontSize: '8px',
         },
     },
 

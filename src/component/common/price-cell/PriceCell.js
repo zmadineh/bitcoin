@@ -9,11 +9,11 @@ import Typography from "@mui/material/Typography";
 
 const PriceCell = ({price, unit, type}) => {
     return(
-        <Grid item display={"flex"} justifyContent={"center"} gap={1}>
-            <Typography>
+        <Grid item display={"flex"} justifyContent={"center"} alignItems={"center"} gap={1}>
+            <Typography variant={'body1'}>
                 {setFractionToNumber((unit === 'toman' ? convert_dollar_to_toman(price) : price), type)}
             </Typography>
-            <Typography>{getUnit(unit)}</Typography>
+            <Typography variant={'body2'} color={'text.primary'}>{getUnit(unit)}</Typography>
         </Grid>
     )
 }

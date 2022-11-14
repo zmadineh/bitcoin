@@ -87,7 +87,7 @@ const LivePrice = () => {
                        </Grid>
 
                        {data ?
-                           <Grid item container>
+                           <Grid item container mt={'50px'}>
                                <Grid item container display={{xs: 'flex', md: 'none'}}>
 
                                </Grid>
