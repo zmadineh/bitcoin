@@ -32,8 +32,12 @@ const StyledToggleButton = styled(ToggleButton)(({ theme }) => ({
     }
 }));
 
-const PriceToggleButton = ({unit, handleUnit}) => {
-    
+const PriceToggleButton = ({unit, setUnit}) => {
+
+    const handleUnit = (e, newUnit) => {
+        setUnit(newUnit ? newUnit : unit)
+    }
+
     return (
         <StyledToggleButtonGroup
             dir={'ltr'}

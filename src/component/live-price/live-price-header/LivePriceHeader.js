@@ -7,7 +7,7 @@ import PriceToggleButton from "../price-toggle-button/PriceToggleButton";
 
 import Grid from "@mui/material/Grid";
 
-const LivePriceHeader = ({search, handleSearch, markedSelected, setMarkedSelected, priceOrder, handleOrder, unit, handleUnit}) => {
+const LivePriceHeader = ({search, handleSearch, markedSelected, setMarkedSelected, priceOrder, handleOrder, unit, setUnit}) => {
     return(
         <Grid container spacing={3} justifyContent={"space-between"}>
             <Grid item xs={12} sm={12} md={4}>
@@ -35,7 +35,7 @@ const LivePriceHeader = ({search, handleSearch, markedSelected, setMarkedSelecte
             </Grid>
 
             <Grid item xs={12} sm={6} md={4}>
-                <PriceToggleButton unit={unit} handleUnit={handleUnit} />
+                <PriceToggleButton unit={unit} setUnit={setUnit} />
             </Grid>
         </Grid>
     )

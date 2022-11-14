@@ -83,7 +83,7 @@ const LivePrice = () => {
                                priceOrder={priceOrder}
                                handleOrder={handleOrder}
                                unit={unit}
-                               handleUnit={handleUnit}
+                               setUnit={setUnit}
                            />
                        </Grid>
 

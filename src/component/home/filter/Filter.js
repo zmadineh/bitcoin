@@ -39,8 +39,8 @@ const StyledToggleButton = styled(ToggleButton)(({ theme }) => ({
 
 const Filter = ({growthSelect, setGrowthSelect}) => {
 
-    const handleChange = (event, newGrowth) => {
-        setGrowthSelect(newGrowth);
+    const handleChange = (e, newGrowth) => {
+        setGrowthSelect(newGrowth ? newGrowth : growthSelect);
     }
 
     return (
