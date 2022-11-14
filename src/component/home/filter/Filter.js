@@ -11,7 +11,8 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
-    maxWidth: '360px',
+    maxWidth: '370px',
+    padding: '0 4px',
     backgroundColor: theme.palette.background.secondary,
 
     '& .MuiToggleButtonGroup-grouped': {
@@ -29,6 +30,12 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     },
 }));
 
+const StyledToggleButton = styled(ToggleButton)(({ theme }) => ({
+
+    "&.Mui-selected, &.Mui-selected:hover": {
+        backgroundColor: theme.palette.background.default,
+    }
+}));
 
 const Filter = ({growthSelect, setGrowthSelect}) => {
 
@@ -45,19 +52,19 @@ const Filter = ({growthSelect, setGrowthSelect}) => {
                 onChange={handleChange}
                 aria-label="growth select"
             >
-                <ToggleButton value="descending" standard={"true"}>
-                        <Grid container alignItems={"center"} gap={1} px={1}>
+                <StyledToggleButton value="descending" standard={"true"}>
+                        {/*<Grid container alignItems={"center"} gap={1} px={1}>*/}
                             <TrendingUpIcon color={'success'}/>
                             <Typography variant={"body1"}>بیشترین رشد</Typography>
-                        </Grid>
-                </ToggleButton>
+                        {/*</Grid>*/}
+                </StyledToggleButton>
 
-                <ToggleButton value="incremental" standard={"true"}>
+                <StyledToggleButton value="incremental" standard={"true"}>
                         <Grid container alignItems={"center"} gap={1} px={1}>
                             <TrendingDownIcon color={'error'}/>
                             <Typography variant={"body1"}>کمترین رشد</Typography>
                         </Grid>
-                </ToggleButton>
+                </StyledToggleButton>
 
             </StyledToggleButtonGroup>
         </Grid>

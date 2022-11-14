@@ -7,6 +7,7 @@ import FilterWithMarkButton from "../filter-with-mark-button/FilterWithMarkButto
 import Grid from "@mui/material/Grid";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import ToggleButton from "@mui/material/ToggleButton";
+import PriceToggleButton from "../price-toggle-button/PriceToggleButton";
 
 const LivePriceHeader = ({search, handleSearch, markedSelected, setMarkedSelected, priceOrder, handleOrder, unit, handleUnit}) => {
     return(
@@ -36,22 +37,7 @@ const LivePriceHeader = ({search, handleSearch, markedSelected, setMarkedSelecte
             </Grid>
 
             <Grid item xs={12} sm={6} md={4}>
-                <ToggleButtonGroup
-                    dir={'ltr'}
-                    color="primary"
-                    value={unit}
-                    exclusive
-                    onChange={handleUnit}
-                    sx={{height: '100%'}}
-                    fullWidth
-                >
-                    <ToggleButton value="tether" standard={"true"}>
-                        تتر
-                    </ToggleButton>
-                    <ToggleButton value="toman" standard={"true"}>
-                        تومان
-                    </ToggleButton>
-                </ToggleButtonGroup>
+                <PriceToggleButton unit={unit} handleUnit={handleUnit} />
             </Grid>
         </Grid>
     )
