@@ -65,11 +65,11 @@ const LivePrice = () => {
                    <Grid container spacing={2}>
 
                        <Grid item container py={3} gap={4}>
-                           <Typography variant='h5'>قیمت لحظه ای</Typography>
+                           <Typography variant={'h4'}>قیمت لحظه ای</Typography>
                            <Grid item display={"flex"} alignItems={"center"} gap={1}>
                                <FiberManualRecordIcon color={"warning"} fontSize={'10px'}/>
-                               <Typography variant='h5'>{data ? filteredData().length : 0}</Typography>
-                               <Typography variant={'h5'}>ارز دیجیتال</Typography>
+                               <Typography variant={'body1'} color={'text.secondary'}>{data ? filteredData().length : 0}</Typography>
+                               <Typography variant={'body1'} color={'text.secondary'}>ارز دیجیتال</Typography>
                            </Grid>
                        </Grid>
 
@@ -86,7 +86,7 @@ const LivePrice = () => {
                            />
                        </Grid>
 
-                       {data ?
+                       {data && loading ?
                            <Grid item container mt={'50px'}>
                                <Grid item container display={{xs: 'flex', md: 'none'}}>
 

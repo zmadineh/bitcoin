@@ -28,11 +28,11 @@ const AppMenu = () => {
                     edge="start"
                     color="inherit"
                     aria-label="menu"
-                    sx={{ m: 2 }}
+                    sx={{ ml: 2 }}
                     onClick={toggleDrawer( true)}
                 >
                     <MenuIcon />
-                    <Typography variant="h4" sx={{ flexGrow: 1, mr: 1 }}>{`منو`}</Typography>
+                    <Typography variant="body1" sx={{ flexGrow: 1, mr: 1 }}>{`منو`}</Typography>
                 </IconButton>
 
                 <NavMenu />

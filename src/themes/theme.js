@@ -82,39 +82,41 @@ export const theme = createTheme({
     typography: {
         fontFamily: [
             'IRANSans',
-            // 'Poppins',
-            // 'sans-serif',
+            'Poppins',
+            'sans-serif',
         ].join(','),
 
         h1: {
-            fontSize: '26px',
+            fontSize: '1.71rem',
         },
         h2: {
-            fontSize: '23px',
+            fontSize: '1.57rem',
         },
         h3: {
-            fontSize: '21px',
+            fontSize: '1.42rem',
         },
         h4: {
-            fontSize: '18px',
+            fontSize: '1.28rem',
+            fontWeight: '700',
         },
         h5: {
-            fontSize: '15px',
+            fontSize: '1.14rem',
         },
         h6: {
-            fontSize: '14px',
+            fontSize: '1rem',
         },
         body1: {
-            fontSize: '13px',
+            fontSize: '0.85rem',
+            fontWeight: '400',
         },
         body2: {
-            fontSize: '11px',
+            fontSize: '0.78rem',
         },
         caption: {
-            fontSize: '9px',
+            fontSize: '0.71rem',
         },
         overline: {
-            fontSize: '8px',
+            fontSize: '0.64rem',
         },
     },
 

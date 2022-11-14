@@ -13,7 +13,7 @@ const PriceCell = ({price, unit, type}) => {
             <Typography variant={'body1'}>
                 {setFractionToNumber((unit === 'toman' ? convert_dollar_to_toman(price) : price), type)}
             </Typography>
-            <Typography variant={'body2'} color={'text.primary'}>{getUnit(unit)}</Typography>
+            <Typography variant={'body2'} color={'text.secondary'}>{getUnit(unit)}</Typography>
         </Grid>
     )
 }

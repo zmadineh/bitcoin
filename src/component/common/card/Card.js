@@ -11,10 +11,10 @@ const Card = ({title, description, image, rank= 0, expand= false}) => {
                 <Avatar src={image} width={'25px'}/>
             </Grid>
             <Grid container item xs={8} mx={'10px'} flexDirection={"column"} alignItems={'flex-start'} >
-                <Typography fontSize='18px'>{title}</Typography>
+                <Typography variant={"body1"} >{title}</Typography>
                 <Grid item display={"flex"} gap={1}>
                     {expand ? <Typography fontSize='15px'>{rank}</Typography> : null }
-                    <Typography fontSize='15px'>{description}</Typography>
+                    <Typography variant={"body1"} color={'text.secondary'}>{description}</Typography>
                 </Grid>
             </Grid>
         </Grid>

@@ -92,12 +92,12 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
                 <TableHead>
                     <TableRow>
                         <StyledTableCell align={direction[dir].align}>
-                            <Typography variant={'h6'}>{header[0]}</Typography>
+                            <Typography variant={'body1'}>{header[0]}</Typography>
                         </StyledTableCell>
 
                         {header.slice(1).map(item => (
                             <StyledTableCell key={item} align={"center"}>
-                                <Typography variant={'h6'}>{item}</Typography>
+                                <Typography variant={'body1'}>{item}</Typography>
                             </StyledTableCell>
                         ))}
                     </TableRow>

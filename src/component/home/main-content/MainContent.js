@@ -34,16 +34,16 @@ const MainContent = () => {
                                 <Grid item>
                                     <Equalizer color="success" />
                                 </Grid>
-                                <Grid item display={"flex"} flexDirection={"column"} gap={1}>
-                                    <Typography variant='h5'>{`قیمت لحظه ای`}</Typography>
-                                    <Typography variant='h6'>{`در 24 ساعت گذشته`}</Typography>
+                                <Grid item display={"flex"} flexDirection={"column"} gap={0}>
+                                    <Typography variant='h6'>{`قیمت لحظه ای`}</Typography>
+                                    <Typography variant='body2' color={'text.secondary'}>{`در 24 ساعت گذشته`}</Typography>
                                 </Grid>
                             </Grid>
 
                             <Grid item xs={2} display={"flex"} justifyContent={"center"}>
                                 <Link to={'/live'}>
                                     <Button>
-                                        <Typography variant={'h5'}>{`مشاهده همه`}</Typography>
+                                        <Typography variant={'body1'}>{`مشاهده همه`}</Typography>
                                     </Button>
                                 </Link>
                             </Grid>
