@@ -97,11 +97,11 @@ const TradeForm = ({data, loading}) => {
                     />
                 </Grid>
 
-                <Grid container item gap={1} justifyContent={"center"} flexDirection={{xs: 'column', md: 'row'}} mt={'20px'}>
-                    <Button variant={"contained"} color={"secondary"} type="submit" onClick={() => setSubmitType('sale')}>
-                        {`درخواست فروش`}
+                <Grid container item gap={1} justifyContent={"center"} alignItems={"center"} flexDirection={{xs: 'column', md: 'row'}} mt={'20px'}>
+                    <Button variant={"contained"} color={"secondary"} type="submit" onClick={() => setSubmitType('sale')} sx={{width: '150px'}}>
+                        {`فروش`}
                     </Button>
-                    <Button variant={"contained"} color={"primary"} type="submit" onClick={() => setSubmitType('buy')}>
+                    <Button variant={"contained"} color={"primary"} type="submit" onClick={() => setSubmitType('buy')} sx={{width: '150px'}}>
                         {`درخواست خرید`}
                     </Button>
                 </Grid>

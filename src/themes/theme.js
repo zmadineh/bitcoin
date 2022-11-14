@@ -59,11 +59,20 @@ export const theme = createTheme({
 
         },
         text: {
-            primary: '#323238',
+            primary: '#212124',
             secondary: '#00000099',
             mute: '#bdbdbd'
 
         },
+        action: {
+            disabledBackground: '#6c759624',
+            selected: '#00000014',
+        },
+
+        divider: '#2121211C',
+
+        skeleton: '#e0e0e0',
+
         background: {
             default:'#fff',
             secondary: '#fafafa',

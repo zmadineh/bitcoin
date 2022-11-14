@@ -46,16 +46,16 @@ const Filter = ({growthSelect, setGrowthSelect}) => {
                 aria-label="growth select"
             >
                 <ToggleButton value="descending" standard={"true"}>
-                        <Grid container gap={1}>
+                        <Grid container alignItems={"center"} gap={1} px={1}>
                             <TrendingUpIcon color={'success'}/>
-                            <Typography>بیشترین رشد</Typography>
+                            <Typography variant={"body1"}>بیشترین رشد</Typography>
                         </Grid>
                 </ToggleButton>
 
                 <ToggleButton value="incremental" standard={"true"}>
-                        <Grid container gap={1} px={1}>
+                        <Grid container alignItems={"center"} gap={1} px={1}>
                             <TrendingDownIcon color={'error'}/>
-                            <Typography>کمترین رشد</Typography>
+                            <Typography variant={"body1"}>کمترین رشد</Typography>
                         </Grid>
                 </ToggleButton>
 

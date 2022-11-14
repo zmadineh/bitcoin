@@ -5,21 +5,38 @@ import {addMark, removeMark} from "../../../toolkit/slices/bitcoin.slice";
 import {direction} from "../../../data/direction.data";
 
 import Card from "../card/Card";
+import PriceCell from "../price-cell/PriceCell";
+import PercentageCell from "../percentage-cell/PercentageCell";
 
+import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import Star from '@mui/icons-material/Star';
-import PriceCell from "../price-cell/PriceCell";
-import PercentageCell from "../percentage-cell/PercentageCell";
-import Typography from "@mui/material/Typography";
+
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+        backgroundColor: theme.palette.background.secondary,
+        color: theme.palette.text.primary,
+    },
+    borderBottom: 0
+}));
+
+const StyledTableContainer = styled(TableContainer)(({ theme }) => ({
+    borderRadius: '8px',
+    border: '1px solid',
+    borderColor: theme.palette.divider
+}));
+
 
 
 const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, expand = false, sort = 'incremental'}) => {
@@ -70,18 +87,18 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
     }
 
     return (
-        <TableContainer component={Paper}>
-            <Table aria-label="live price table" stickyHeader  dir={direction[dir].dir}>
+        <StyledTableContainer component={Paper}>
+            <Table aria-label="live price table" stickyHeader dir={direction[dir].dir}>
                 <TableHead>
                     <TableRow>
-                        <TableCell align={direction[dir].align}>
-                            <Typography variant={'h5'}>{header[0]}</Typography>
-                        </TableCell>
+                        <StyledTableCell align={direction[dir].align}>
+                            <Typography variant={'h6'}>{header[0]}</Typography>
+                        </StyledTableCell>
 
                         {header.slice(1).map(item => (
-                            <TableCell key={item} align={"center"}>
-                                <Typography variant={'h5'}>{item}</Typography>
-                            </TableCell>
+                            <StyledTableCell key={item} align={"center"}>
+                                <Typography variant={'h6'}>{item}</Typography>
+                            </StyledTableCell>
                         ))}
                     </TableRow>
                 </TableHead>
@@ -105,7 +122,7 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
                     </TableBody>
                 : null}
             </Table>
-        </TableContainer>
+        </StyledTableContainer>
     );
 }
 
