@@ -34,19 +34,6 @@ const LivePrice = () => {
         dispatch(fetchBitcoinDataAsync())
     }, []);
 
-
-    const handleSearch = (e) => {
-        setSearch(e.target.value.toString().toLowerCase())
-    }
-
-    const handleOrder = (e) => {
-        setPriceOrder(e.target.value)
-    }
-
-    const handleUnit = (e, newUnit) => {
-        setUnit(newUnit ? newUnit : unit)
-    }
-
     const filteredData = () => {
         let coins = data;
         if (data) {
@@ -77,11 +64,11 @@ const LivePrice = () => {
                        <Grid item container>
                            <LivePriceHeader
                                search={search}
-                               handleSearch={handleSearch}
+                               setSearch={setSearch}
                                markedSelected={markedSelected}
                                setMarkedSelected={setMarkedSelected}
                                priceOrder={priceOrder}
-                               handleOrder={handleOrder}
+                               setPriceOrder={setPriceOrder}
                                unit={unit}
                                setUnit={setUnit}
                            />
@@ -102,7 +89,7 @@ const LivePrice = () => {
                                        loading={loading}
                                        count={countOfDataToShow}
                                        expand={true}
-                                       border={false}
+                                       borderFlag={false}
                                        sort={priceOrder}
                                    />
                                </Grid>

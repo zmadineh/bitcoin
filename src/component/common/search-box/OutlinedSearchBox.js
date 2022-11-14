@@ -5,7 +5,11 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import Search from "@mui/icons-material/Search";
 
-const OutlinedSearchBox = ({search, handleSearch, borderRadius = '15px'}) => {
+const OutlinedSearchBox = ({search, setSearch, borderRadius = '15px'}) => {
+
+    const handleSearch = (e) => {
+        setSearch(e.target.value.toString().toLowerCase())
+    }
 
     return (
         <FormControl variant="standard" fullWidth dir={'rtl'} sx={{height: '100%', width: '100%'}}>

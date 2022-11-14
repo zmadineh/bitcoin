@@ -5,7 +5,12 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 
-const OrderSelect = ({Order, handleOrder}) => {
+const OrderSelect = ({Order, setPriceOrder}) => {
+
+    const handleOrder = (e) => {
+        setPriceOrder(e.target.value)
+    }
+
     return (
         <FormControl fullWidth sx={{height: '100%'}}>
             <InputLabel id="price-order-label"> ترتیب بر اساس  </InputLabel>
