@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom"
 
-import {pageList} from "../../../data/page-list.data";
+import {pageList} from "../../../../data/page-list.data";
 
 import Button from '@mui/material/Button';
 import Grid from "@mui/material/Grid";

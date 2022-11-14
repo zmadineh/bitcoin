@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NavMenu from "../nav-menu/NavMenu";
+import NavMenu from "./nav-menu/NavMenu";
 import DrawerContent from "../drawer-content/DrawerContent";
 
 import Drawer from '@mui/material/Drawer';
