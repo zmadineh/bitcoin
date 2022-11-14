@@ -31,15 +31,15 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     borderBottom: 0
 }));
 
-const StyledTableContainer = styled(TableContainer)(({ theme }) => ({
+const StyledTableContainer = styled(TableContainer)(({ theme, border }) => ({
     borderRadius: '8px',
-    border: '1px solid',
+    border: border ? '1px solid' : 0,
     borderColor: theme.palette.divider
 }));
 
 
 
-const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, expand = false, sort = 'incremental'}) => {
+const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, expand = false, sort = 'incremental', border=true}) => {
 
     const dispatch = useDispatch();
     const sortedCoinsIncremental  = useMemo(() => {
@@ -87,7 +87,7 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
     }
 
     return (
-        <StyledTableContainer component={Paper}>
+        <StyledTableContainer component={Paper} border={border}>
             <Table aria-label="live price table" stickyHeader dir={direction[dir].dir}>
                 <TableHead>
                     <TableRow>

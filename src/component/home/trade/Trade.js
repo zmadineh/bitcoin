@@ -6,6 +6,7 @@ import TradeForm from "../trade-form/TradeForm";
 import trade_logo from "../../../assets/images/logo.jpg";
 
 import Grid from "@mui/material/Grid";
+import LoadingAnimation from "../../common/loading-animation/LoadingAnimation";
 
 const Trade = () => {
     const coinIsReceived = useSelector((state) => state.bitcoin.isReceived);
@@ -18,6 +19,7 @@ const Trade = () => {
             </Grid>
 
             <TradeForm data={coinData} loading={coinIsReceived}/>
+            {/*<LoadingAnimation />*/}
         </Grid>
     )
 }

@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchBitcoinDataAsync} from "../../toolkit/slices/bitcoin.slice";
 import LivePriceHeader from "../../component/live-price/live-price-header/LivePriceHeader";
 import PriceTable from "../../component/common/price-table/PriceTable";
+import LoadingAnimation from "../../component/common/loading-animation/LoadingAnimation";
 import {coinItemTitle} from "../../data/live-price-table-item-title.data";
 import {tableHeader} from "../../data/live-price-table-headers.data";
 
@@ -13,6 +14,7 @@ import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+
 
 const LivePrice = () => {
 
@@ -42,8 +44,7 @@ const LivePrice = () => {
     }
 
     const handleUnit = (e, newUnit) => {
-        setUnit(newUnit)
-        console.log(newUnit)
+        setUnit(newUnit ? newUnit : unit)
     }
 
     const filteredData = () => {
@@ -60,14 +61,14 @@ const LivePrice = () => {
     return(
        <Grid container bgcolor={theme.palette.background.secondary}>
            <Container sx={{padding: '50px 20px', marginTop: '150px'}}>
-               <Paper dir={'rtl'} sx={{borderRadius: '20px', padding: '40px'}} >
+               <Paper dir={'rtl'} sx={{borderRadius: '20px', padding: '40px', minHeight: '100vh'}} >
 
                    <Grid container spacing={2}>
 
                        <Grid item container py={3} gap={4}>
                            <Typography variant={'h4'}>قیمت لحظه ای</Typography>
                            <Grid item display={"flex"} alignItems={"center"} gap={1}>
-                               <FiberManualRecordIcon color={"warning"} fontSize={'10px'}/>
+                               <FiberManualRecordIcon color={"warning"} fontSize={"small"}/>
                                <Typography variant={'body1'} color={'text.secondary'}>{data ? filteredData().length : 0}</Typography>
                                <Typography variant={'body1'} color={'text.secondary'}>ارز دیجیتال</Typography>
                            </Grid>
@@ -87,7 +88,7 @@ const LivePrice = () => {
                        </Grid>
 
                        {data && loading ?
-                           <Grid item container mt={'50px'}>
+                           <Grid item container mt={'20px'}>
                                <Grid item container display={{xs: 'flex', md: 'none'}}>
 
                                </Grid>
@@ -101,11 +102,13 @@ const LivePrice = () => {
                                        loading={loading}
                                        count={countOfDataToShow}
                                        expand={true}
+                                       border={false}
                                        sort={priceOrder}
                                    />
                                </Grid>
                            </Grid>
-                           : <Grid container justifyContent={"center"} m={3}>...loading</Grid> }
+                           :
+                       <LoadingAnimation /> }
                    </Grid>
                </Paper>
            </Container>

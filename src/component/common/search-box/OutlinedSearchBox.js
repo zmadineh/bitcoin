@@ -8,8 +8,12 @@ import Search from "@mui/icons-material/Search";
 const OutlinedSearchBox = ({search, handleSearch, borderRadius = '15px'}) => {
 
     return (
-        <FormControl variant="standard" fullWidth dir={'rtl'}>
-            <OutlinedInput id="search" value={search} onChange={handleSearch} sx={{borderRadius: borderRadius}} placeholder={'جستجو'}
+        <FormControl variant="standard" fullWidth dir={'rtl'} sx={{height: '100%', width: '100%'}}>
+            <OutlinedInput id="search"
+                           value={search}
+                           onChange={handleSearch}
+                           sx={{borderRadius: borderRadius}}
+                           placeholder={'جستجو'}
                            startAdornment={<InputAdornment position="start"> <Search /> </InputAdornment>} />
         </FormControl>
     )

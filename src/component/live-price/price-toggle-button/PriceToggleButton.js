@@ -4,9 +4,12 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import ToggleButton from "@mui/material/ToggleButton";
 import {styled} from "@mui/material/styles";
 
-const StyledToggleButton = styled(ToggleButton)(({ theme }) => ({
-    maxWidth: '360px',
-    backgroundColor: theme.palette.background.secondary,
+const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
+    padding: '0 4px',
+    borderRadius: '8px',
+    border: '1px solid',
+    borderColor: theme.palette.divider,
+    backgroundColor: theme.palette.background.default,
 
     '& .MuiToggleButtonGroup-grouped': {
         margin: theme.spacing(0.5),
@@ -15,32 +18,38 @@ const StyledToggleButton = styled(ToggleButton)(({ theme }) => ({
             border: 0,
         },
         '&:not(:first-of-type)': {
-            borderRadius: theme.shape.borderRadius,
+            borderRadius: '8px',
         },
         '&:first-of-type': {
-            borderRadius: theme.shape.borderRadius,
+            borderRadius: '8px',
         },
     },
 }));
 
+const StyledToggleButton = styled(ToggleButton)(({ theme }) => ({
+    "&.Mui-selected, &.Mui-selected:hover": {
+        backgroundColor: theme.palette.primary.lighter,
+    }
+}));
+
 const PriceToggleButton = ({unit, handleUnit}) => {
+    
     return (
-        <ToggleButtonGroup
+        <StyledToggleButtonGroup
             dir={'ltr'}
             color="primary"
             value={unit}
             exclusive
             onChange={handleUnit}
-            sx={{height: '100%'}}
             fullWidth
         >
-            <ToggleButton value="tether" standard={"true"}>
+            <StyledToggleButton value="tether" standard={"true"}>
                 تتر
-            </ToggleButton>
-            <ToggleButton value="toman" standard={"true"}>
+            </StyledToggleButton>
+            <StyledToggleButton value="toman" standard={"true"}>
                 تومان
-            </ToggleButton>
-        </ToggleButtonGroup>
+            </StyledToggleButton>
+        </StyledToggleButtonGroup>
     )
 }
 

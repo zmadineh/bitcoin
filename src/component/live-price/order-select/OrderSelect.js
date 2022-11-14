@@ -7,7 +7,7 @@ import FormControl from "@mui/material/FormControl";
 
 const OrderSelect = ({Order, handleOrder}) => {
     return (
-        <FormControl fullWidth>
+        <FormControl fullWidth sx={{height: '100%'}}>
             <InputLabel id="price-order-label"> ترتیب بر اساس  </InputLabel>
             <Select
                 labelId="price-order-label"
@@ -15,6 +15,7 @@ const OrderSelect = ({Order, handleOrder}) => {
                 value={Order}
                 label="priceOrder"
                 onChange={handleOrder}
+                sx={{height: '100%'}}
             >
                 <MenuItem value={'descending'}>بیشترین قیمت</MenuItem>
                 <MenuItem value={'incremental'}>کمترین قیمت</MenuItem>

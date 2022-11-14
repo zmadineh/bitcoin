@@ -3,16 +3,14 @@ import React from "react";
 import OutlinedSearchBox from "../../common/search-box/OutlinedSearchBox";
 import OrderSelect from "../order-select/OrderSelect";
 import FilterWithMarkButton from "../filter-with-mark-button/FilterWithMarkButton";
+import PriceToggleButton from "../price-toggle-button/PriceToggleButton";
 
 import Grid from "@mui/material/Grid";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import ToggleButton from "@mui/material/ToggleButton";
-import PriceToggleButton from "../price-toggle-button/PriceToggleButton";
 
 const LivePriceHeader = ({search, handleSearch, markedSelected, setMarkedSelected, priceOrder, handleOrder, unit, handleUnit}) => {
     return(
         <Grid container spacing={3} justifyContent={"space-between"}>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} sm={12} md={4}>
                 <OutlinedSearchBox
                     search={search}
                     handleSearch={handleSearch}
@@ -20,15 +18,15 @@ const LivePriceHeader = ({search, handleSearch, markedSelected, setMarkedSelecte
                 />
             </Grid>
 
-            <Grid item xs={12} sm={6} md={4} gap={2} display={"flex"} flexDirection={{xs: 'column', sm: 'row'}}>
-                <Grid item xs={12} md={6}>
+            <Grid container item xs={12} sm={6} md={4} spacing={2} display={"flex"} flexDirection={{xs: 'row', sm: 'column'}}>
+                <Grid item xs={12} sm={6} md={6} sx={{width: '100%'}}>
                     <FilterWithMarkButton
                         markedSelected={markedSelected}
                         setMarkedSelected={setMarkedSelected}
                     />
                 </Grid>
 
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} sm={6} md={6}>
                     <OrderSelect
                         Order={priceOrder}
                         handleOrder={handleOrder}

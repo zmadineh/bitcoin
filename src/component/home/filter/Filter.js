@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 
 import { styled } from '@mui/material/styles';
 
@@ -13,6 +13,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     maxWidth: '370px',
     padding: '0 4px',
+    borderRadius: '8px',
     backgroundColor: theme.palette.background.secondary,
 
     '& .MuiToggleButtonGroup-grouped': {
@@ -22,16 +23,15 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
             border: 0,
         },
         '&:not(:first-of-type)': {
-            borderRadius: theme.shape.borderRadius,
+            borderRadius: '8px',
         },
         '&:first-of-type': {
-            borderRadius: theme.shape.borderRadius,
+            borderRadius: '8px',
         },
     },
 }));
 
 const StyledToggleButton = styled(ToggleButton)(({ theme }) => ({
-
     "&.Mui-selected, &.Mui-selected:hover": {
         backgroundColor: theme.palette.background.default,
     }
@@ -44,7 +44,7 @@ const Filter = ({growthSelect, setGrowthSelect}) => {
     }
 
     return (
-        <Grid item borderRadius={2}>
+        <Grid item>
             <StyledToggleButtonGroup
                 size={'small'}
                 value={growthSelect}
@@ -53,10 +53,10 @@ const Filter = ({growthSelect, setGrowthSelect}) => {
                 aria-label="growth select"
             >
                 <StyledToggleButton value="descending" standard={"true"}>
-                        {/*<Grid container alignItems={"center"} gap={1} px={1}>*/}
+                        <Grid container alignItems={"center"} gap={1} px={1}>
                             <TrendingUpIcon color={'success'}/>
                             <Typography variant={"body1"}>بیشترین رشد</Typography>
-                        {/*</Grid>*/}
+                        </Grid>
                 </StyledToggleButton>
 
                 <StyledToggleButton value="incremental" standard={"true"}>

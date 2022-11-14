@@ -4,6 +4,9 @@ import {useSelector} from "react-redux";
 
 import Filter from "../filter/Filter";
 import PriceTable from "../../common/price-table/PriceTable";
+import CartList from "../cart-list/CartList";
+import LoadingAnimation from "../../common/loading-animation/LoadingAnimation";
+
 import {tableHeader} from "../../../data/home-table-headers.data";
 import {coinItemTitle} from "../../../data/home-table-item-title.data";
 
@@ -13,7 +16,7 @@ import Equalizer from "@mui/icons-material/Equalizer";
 import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import CartList from "../cart-list/CartList";
+
 
 const MainContent = () => {
 
@@ -56,30 +59,32 @@ const MainContent = () => {
                         </Grid>
 
 
-                        <Grid item container>
-                            <Grid item container display={{xs: 'flex', md: 'none'}}>
-                                <CartList
-                                    data={data}
-                                    unit={'toman'}
-                                    loading={loading}
-                                    count={countOfDataToShow}
-                                    sort={growthSelect}
-                                />
+                        {data && loading ?
+                            <Grid item container>
+                                <Grid item container display={{xs: 'flex', md: 'none'}}>
+                                    <CartList
+                                        data={data}
+                                        unit={'toman'}
+                                        loading={loading}
+                                        count={countOfDataToShow}
+                                        sort={growthSelect}
+                                    />
+                                </Grid>
+                                <Grid item container display={{xs: 'none', md: 'flex'}}>
+                                    <PriceTable
+                                        dir={'rtl'}
+                                        header={tableHeader}
+                                        titles={coinItemTitle}
+                                        data={data}
+                                        unit={'toman'}
+                                        loading={loading}
+                                        count={countOfDataToShow}
+                                        sort={growthSelect}
+                                    />
+                                </Grid>
                             </Grid>
-                            <Grid item container display={{xs: 'none', md: 'flex'}}>
-                                <PriceTable
-                                    dir={'rtl'}
-                                    header={tableHeader}
-                                    titles={coinItemTitle}
-                                    data={data}
-                                    unit={'toman'}
-                                    loading={loading}
-                                    count={countOfDataToShow}
-                                    sort={growthSelect}
-                                />
-                            </Grid>
-                        </Grid>
-
+                        :
+                        <LoadingAnimation /> }
                     </Grid>
                 </Paper>
             </Container>
