@@ -76,10 +76,6 @@ const LivePrice = () => {
 
                        {data && loading ?
                            <Grid item container mt={'20px'}>
-                               <Grid item container display={{xs: 'flex', md: 'none'}}>
-
-                               </Grid>
-                               <Grid item container display={{xs: 'none', md: 'flex'}}>
                                    <PriceTable
                                        dir={'ltr'}
                                        header={tableHeader}
@@ -92,7 +88,6 @@ const LivePrice = () => {
                                        borderFlag={false}
                                        sort={priceOrder}
                                    />
-                               </Grid>
                            </Grid>
                            :
                        <LoadingAnimation /> }

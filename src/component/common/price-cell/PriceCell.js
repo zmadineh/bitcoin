@@ -7,9 +7,9 @@ import {getUnit} from "../../../helper/getUnit.helper";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
-const PriceCell = ({price, unit, type}) => {
+const PriceCell = ({price, unit, type, dir= 'row'}) => {
     return(
-        <Grid item display={"flex"} justifyContent={"center"} alignItems={"center"} gap={1}>
+        <Grid item display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={dir} gap={1}>
             <Typography variant={'body1'}>
                 {setFractionToNumber((unit === 'toman' ? convert_dollar_to_toman(price) : price), type)}
             </Typography>

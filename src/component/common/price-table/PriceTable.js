@@ -1,41 +1,16 @@
-import React, {useMemo} from 'react';
+import React, {Fragment, useMemo} from 'react';
 import {useDispatch} from "react-redux";
 import {addMark, removeMark} from "../../../toolkit/slices/bitcoin.slice";
 
-import {direction} from "../../../data/direction.data";
-
-import Card from "../card/Card";
 import PriceCell from "../price-cell/PriceCell";
 import PercentageCell from "../percentage-cell/PercentageCell";
 
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import Star from '@mui/icons-material/Star';
-
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-    [`&.${tableCellClasses.head}`]: {
-        backgroundColor: theme.palette.background.secondary,
-        color: theme.palette.text.primary,
-    },
-    borderBottom: 0
-}));
-
-const StyledTableContainer = styled(TableContainer)(({ theme}) => ({
-    borderRadius: '8px',
-    borderColor: theme.palette.divider
-}));
-
+import PriceTableSm from "./PriceTableSm";
+import PriceTableXs from "./PriceTableXs";
+import Grid from "@mui/material/Grid";
 
 
 const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, expand = false, sort = 'incremental', borderFlag=true}) => {
@@ -86,42 +61,35 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
     }
 
     return (
-        <StyledTableContainer component={Paper} border={borderFlag ? '1px solid' : 0}>
-            <Table aria-label="live price table" stickyHeader dir={direction[dir].dir}>
-                <TableHead>
-                    <TableRow>
-                        <StyledTableCell align={direction[dir].align}>
-                            <Typography variant={'body1'}>{header[0]}</Typography>
-                        </StyledTableCell>
+        <Grid container>
+            <Grid container sx={{display: { xs: 'fle', md: 'none' }}}>
+                <PriceTableXs
+                    data={data}
+                    loading={loading}
+                    dir={dir}
+                    borderFlag={borderFlag}
+                    header={header}
+                    titles={titles}
+                    setTableCellData={setTableCellData}
+                    selectDataToShow={selectDataToShow}
+                    unit={unit}
+                    handelMark={handelMark}
+                />
+            </Grid>
 
-                        {header.slice(1).map(item => (
-                            <StyledTableCell key={item} align={"center"}>
-                                <Typography variant={'body1'}>{item}</Typography>
-                            </StyledTableCell>
-                        ))}
-                    </TableRow>
-                </TableHead>
-
-                {data && loading ?
-                    <TableBody>
-                        {selectDataToShow().map(coin => (
-
-                            <TableRow hover key={coin.id}>
-                                <TableCell align={direction[dir].align}>
-                                    <Card title={coin.name} description={coin.symbol} image={coin.image} rank={coin.market_cap_rank} expand={expand}/>
-                                </TableCell>
-
-                                {titles.map( title => (
-                                    <TableCell key={title.label} align="center">
-                                        {setTableCellData(title, coin)}
-                                    </TableCell>
-                                ))}
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                : null}
-            </Table>
-        </StyledTableContainer>
+            <Grid container sx={{display: { xs: 'none', md: 'flex' }}}>
+                <PriceTableSm
+                    data={data}
+                    loading={loading}
+                    dir={dir}
+                    borderFlag={borderFlag}
+                    header={header}
+                    titles={titles}
+                    setTableCellData={setTableCellData}
+                    selectDataToShow={selectDataToShow}
+                    expand={expand} />
+            </Grid>
+        </Grid>
     );
 }
 

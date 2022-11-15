@@ -22,7 +22,7 @@ const TradeForm = ({data, loading}) => {
     const [form, setForm] = useState( {
         currency: 'bitcoin',
         unit: 1,
-        price: initialCoin.current_price,
+        price: 0,
     })
 
 
@@ -32,8 +32,10 @@ const TradeForm = ({data, loading}) => {
 
     const handleClose = (value) => {
         setOpen(false);
-        setForm( {currency: value.id, unit: 1, price: convert_dollar_to_toman(value.current_price)})
-        setSelectedCoin({id: value.id, unitPrice: convert_dollar_to_toman(value.current_price)});
+        if (value.current_price){
+            setForm( {currency: value.id, unit: 1, price: convert_dollar_to_toman(value.current_price)})
+            setSelectedCoin({id: value.id, unitPrice: convert_dollar_to_toman(value.current_price)});
+        }
     };
 
     const handleUnitChange = (e) => {

@@ -62,7 +62,7 @@ const Filter = ({growthSelect, setGrowthSelect}) => {
                 <StyledToggleButton value="incremental" standard={"true"}>
                         <Grid container alignItems={"center"} gap={1} px={1}>
                             <TrendingDownIcon color={'error'}/>
-                            <Typography variant={"body1"}>کمترین رشد</Typography>
+                            <Typography variant={"body1"}>بیشترین کاهش</Typography>
                         </Grid>
                 </StyledToggleButton>
 
