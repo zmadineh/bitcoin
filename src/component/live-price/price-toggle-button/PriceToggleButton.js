@@ -8,7 +8,7 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     padding: '0 4px',
     borderRadius: '8px',
     border: '1px solid',
-    borderColor: theme.palette.divider,
+    borderColor: theme.palette.grey['100'],
     backgroundColor: theme.palette.background.default,
 
     '& .MuiToggleButtonGroup-grouped': {

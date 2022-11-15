@@ -8,13 +8,30 @@ import LoadingAnimation from "../../component/common/loading-animation/LoadingAn
 import {coinItemTitle} from "../../data/live-price-table-item-title.data";
 import {tableHeader} from "../../data/live-price-table-headers.data";
 
-import {useTheme} from "@mui/material/styles";
+import {styled, useTheme} from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
+
+const StyledContainer = styled(Container)(({ theme }) => ({
+    marginTop: '70px',
+    [theme.breakpoints.up('md')]: {
+        padding: '50px 20px',
+        marginTop: '150px',
+    }
+}));
+
+const StyledPaper = styled(Paper)(({ theme }) => ({
+    padding: '10px',
+    [theme.breakpoints.up('md')]: {
+        borderRadius: '20px',
+        padding: '40px',
+        minHeight: '100vh',
+    }
+}));
 
 const LivePrice = () => {
 
@@ -47,12 +64,12 @@ const LivePrice = () => {
 
     return(
        <Grid container bgcolor={theme.palette.background.secondary}>
-           <Container sx={{padding: '50px 20px', marginTop: '150px'}}>
-               <Paper dir={'rtl'} sx={{borderRadius: '20px', padding: '40px', minHeight: '100vh'}} >
+           <StyledContainer >
+               <StyledPaper dir={'rtl'} >
 
                    <Grid container spacing={2}>
 
-                       <Grid item container py={3} gap={4}>
+                       <Grid item container py={3} gap={4} sx={{display: {xs: 'none', md: 'flex'}}}>
                            <Typography variant={'h4'}>قیمت لحظه ای</Typography>
                            <Grid item display={"flex"} alignItems={"center"} gap={1}>
                                <FiberManualRecordIcon color={"warning"} fontSize={"small"}/>
@@ -92,8 +109,8 @@ const LivePrice = () => {
                            :
                        <LoadingAnimation /> }
                    </Grid>
-               </Paper>
-           </Container>
+               </StyledPaper>
+           </StyledContainer>
        </Grid>
     )
 }

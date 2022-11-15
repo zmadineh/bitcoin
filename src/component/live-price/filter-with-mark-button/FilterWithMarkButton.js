@@ -6,15 +6,26 @@ import Button from "@mui/material/Button";
 
 import Star from "@mui/icons-material/Star";
 import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
+import {styled} from "@mui/material/styles";
+
+const StyledButton = styled(Button)(({ theme }) => ({
+    height: '100%',
+    width: '100%',
+    minHeight: '53px',
+    borderRadius: '8px',
+    borderColor: theme.palette.grey["100"],
+    color: theme.palette.secondary.main,
+}));
+
 
 const FilterWithMarkButton = ({ markedSelected, setMarkedSelected }) => {
     return(
-        <Button variant="outlined" color={"secondary"} onClick={() => setMarkedSelected(!markedSelected)} sx={{height: '100%', width: '100%', minHeight: '53px'}}>
+        <StyledButton variant="outlined" onClick={() => setMarkedSelected(!markedSelected)}>
             <Grid display={"flex"} alignItems={"center"} gap={1}>
                 {markedSelected ? <Star color={'warning'}/> : <StarBorderOutlinedIcon /> }
                 <Typography variant={'body1'} noWrap color={'text.primary'}> نشان شده ها</Typography>
             </Grid>
-        </Button>
+        </StyledButton>
     )
 }
 

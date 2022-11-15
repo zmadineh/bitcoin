@@ -71,13 +71,17 @@ export const theme = createTheme({
 
         divider: '#2121211C',
 
-        skeleton: '#e0e0e0',
+        // skeleton: '#e0e0e0',
 
         background: {
             default:'#fff',
             secondary: '#fafafa',
             paper: '#fff',
         },
+
+        grey: {
+            '100' : '#e0e0e0',
+        }
     },
 
     typography: {
