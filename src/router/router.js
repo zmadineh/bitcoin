@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
                 element: <HomePage />,
             },
             {
-                path: "/live",
+                path: "/live-price",
                 element: <LivePrice />
             },
         ],

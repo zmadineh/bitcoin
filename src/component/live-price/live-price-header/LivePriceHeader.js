@@ -19,15 +19,15 @@ const LivePriceHeader = ({search, setSearch, markedSelected, setMarkedSelected, 
                 />
             </Grid>
 
-            <Grid container item xs={12} sm={6} md={4} spacing={1} display={"flex"} flexDirection={{xs: 'row', sm: 'column'}}>
-                <Grid item xs={12} sm={6} sx={{width: '100%'}}>
+            <Grid item xs={12} sm={6} md={4} gap={1} display={"flex"} flexDirection={{xs: 'column', sm: 'row'}}>
+                <Grid item xs={12} sm={6}>
                     <FilterWithMarkButton
                         markedSelected={markedSelected}
                         setMarkedSelected={setMarkedSelected}
                     />
                 </Grid>
 
-                <Grid item xs={12} sm={6} sx={{width: '100%'}}>
+                <Grid item xs={12} sm={6}>
                     <OrderSelect
                         Order={priceOrder}
                         setPriceOrder={setPriceOrder}

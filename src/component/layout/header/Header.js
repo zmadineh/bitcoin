@@ -10,23 +10,30 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
+import NavLink from "../nav-link/NavLink";
+
+
 
 const Header = ({color}) => {
-
     return (
             <AppBar position="fixed" dir={'rtl'} sx={{backgroundColor: color, color: 'text.primary', top: '0', zIndex: '1000' }}>
                 <Container maxWidth="lg">
-                    <Toolbar sx={{justifyContent: 'space-between'}}>
-                        <AppMenu />
+                    <Toolbar>
+                        <Grid container justifyContent={"space-between"} sx={{display: { xs: 'none', md: 'flex' }}}>
+                            <AppMenu />
 
-                        <Grid gap={1} sx={{display: { xs: 'none', md: 'flex' }}}>
-                            <Button variant={'contained'} >{`ورود / ثبت نام`}</Button>
-                            <Divider orientation="vertical" flexItem />
-                            <img src={headerLogo} width={'100px'} />
+                            <Grid display={"flex"} gap={1}>
+                                <Button variant={'contained'} >{`ورود / ثبت نام`}</Button>
+                                <Divider orientation="vertical" flexItem />
+                                <img src={headerLogo} width={'100px'} />
+                            </Grid>
                         </Grid>
 
-                        <Grid gap={1} sx={{display: { xs: 'flex', md: 'none' }}}>
-                            <img src={headerLogo} width={'100px'}/>
+                        <Grid container sx={{display: { xs: 'flex', md: 'none' }}}>
+
+                            <Grid>
+                                <NavLink />
+                            </Grid>
                         </Grid>
 
                     </Toolbar>

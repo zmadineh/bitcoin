@@ -18,6 +18,10 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 const StyledContainer = styled(Container)(({ theme }) => ({
     marginTop: '70px',
+    [theme.breakpoints.down('md')]: {
+        padding: '0px',
+    },
+
     [theme.breakpoints.up('md')]: {
         padding: '50px 20px',
         marginTop: '150px',
@@ -26,6 +30,7 @@ const StyledContainer = styled(Container)(({ theme }) => ({
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
     padding: '10px',
+    minHeight: '100vh',
     [theme.breakpoints.up('md')]: {
         borderRadius: '20px',
         padding: '40px',
@@ -64,7 +69,7 @@ const LivePrice = () => {
 
     return(
        <Grid container bgcolor={theme.palette.background.secondary}>
-           <StyledContainer >
+           <StyledContainer>
                <StyledPaper dir={'rtl'} >
 
                    <Grid container spacing={2}>
@@ -92,7 +97,7 @@ const LivePrice = () => {
                        </Grid>
 
                        {data && loading ?
-                           <Grid item container mt={'20px'}>
+                           <Grid item container mt={{xs: '10px', md: '20px'}}>
                                    <PriceTable
                                        dir={'ltr'}
                                        header={tableHeader}

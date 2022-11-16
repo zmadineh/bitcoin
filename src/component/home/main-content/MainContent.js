@@ -44,7 +44,7 @@ const MainContent = () => {
                             </Grid>
 
                             <Grid item xs={2} display={"flex"} justifyContent={"center"}>
-                                <Link to={'/live'}>
+                                <Link to={'/live-price'}>
                                     <Button>
                                         <Typography variant={'body1'}>{`مشاهده همه`}</Typography>
                                     </Button>

@@ -8,6 +8,7 @@ import {styled} from "@mui/material/styles";
 
 const StyledSelect = styled(Select)(({ theme }) => ({
     color: theme.palette.text.secondary,
+    height: '100%',
     '& .MuiOutlinedInput-notchedOutline' : {
         borderColor: theme.palette.grey['100'],
     }

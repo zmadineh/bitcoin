@@ -11,7 +11,6 @@ import {styled} from "@mui/material/styles";
 const StyledButton = styled(Button)(({ theme }) => ({
     height: '100%',
     width: '100%',
-    minHeight: '53px',
     borderRadius: '8px',
     borderColor: theme.palette.grey["100"],
     color: theme.palette.secondary.main,

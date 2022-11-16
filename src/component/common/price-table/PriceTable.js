@@ -2,14 +2,14 @@ import React, {Fragment, useMemo} from 'react';
 import {useDispatch} from "react-redux";
 import {addMark, removeMark} from "../../../toolkit/slices/bitcoin.slice";
 
+import PriceTableSm from "./PriceTableSm";
+import PriceTableXs from "./PriceTableXs";
 import PriceCell from "../price-cell/PriceCell";
 import PercentageCell from "../percentage-cell/PercentageCell";
 
 import IconButton from "@mui/material/IconButton";
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import Star from '@mui/icons-material/Star';
-import PriceTableSm from "./PriceTableSm";
-import PriceTableXs from "./PriceTableXs";
 import Grid from "@mui/material/Grid";
 
 
@@ -62,7 +62,7 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
 
     return (
         <Grid container>
-            <Grid container sx={{display: { xs: 'fle', md: 'none' }}}>
+            <Grid container sx={{display: { xs: 'flex', md: 'none' }}}>
                 <PriceTableXs
                     data={data}
                     loading={loading}

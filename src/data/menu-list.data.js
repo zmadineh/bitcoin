@@ -1,5 +1,3 @@
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 
 export const menuListsData = [
     {
@@ -7,7 +5,7 @@ export const menuListsData = [
         data:[
                 {id: 1, section: 1, title: "خانه", detail: "", icon: "home", link: '/'},
                 {id: 2, section: 1, title: "پرتفوی", detail: "", icon: "donut_large", link: '/'},
-                {id: 3, section: 1, title: "قیمت لحظه ای", detail: "ارز دیجیتال", icon: "equalizer", link: '/'},
+                {id: 3, section: 1, title: "قیمت لحظه ای", detail: "ارز دیجیتال", icon: "equalizer", link: '/live-price'},
                 {id: 4, section: 1, title: "کیف پول ریالی", detail: "", icon: "account_balance_wallet", link: '/'},
                 {id: 5, section: 1, title: "تغییر به حالت تیره", detail: "", icon: "brightness_medium", link: '/'}
             ],

@@ -23,11 +23,7 @@ import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
-    [`&.${tableCellClasses.head}`]: {
-        backgroundColor: theme.palette.background.secondary,
-        color: theme.palette.text.primary,
-    },
-    borderBottom: 0
+    padding: '12px',
 }));
 
 const StyledTableContainer = styled(TableContainer)(({ theme}) => ({
@@ -46,17 +42,17 @@ const PriceTableXs = ({dir, borderFlag, header, data, loading, selectDataToShow,
                         {selectDataToShow().map(coin => (
 
                             <TableRow hover key={coin.id}>
-                                <TableCell align={direction[dir].align}>
+                                <StyledTableCell align={direction[dir].align}>
                                     <Card title={coin.name} description={coin.symbol} image={coin.image} rank={coin.market_cap_rank} expand={true}>
                                         <PercentageCell type={'percentage'} percentage={coin['price_change_percentage_24h']} variant={'body2'} fontWeight={'300'}/>
                                     </Card>
-                                </TableCell>
+                                </StyledTableCell>
 
-                                <TableCell sx={{display: (unit === 'tether' ? 'table-cell' : 'none')}}>
+                                <StyledTableCell sx={{display: (unit === 'tether' ? 'table-cell' : 'none')}}>
                                     chart
-                                </TableCell>
+                                </StyledTableCell>
 
-                                <TableCell align="center" sx={{display: (unit === 'tether' ? 'table-cell' : 'none')}}>
+                                <StyledTableCell align="center" sx={{display: (unit === 'tether' ? 'table-cell' : 'none')}}>
                                     <Grid item display={"flex"} alignItems={"center"} gap={0.5}>
                                         <Typography variant={"body1"} fontWeight={'600'} color={'text.primary'}>
                                             {financial(coin.current_price, 8, 'en-US')}
@@ -68,9 +64,9 @@ const PriceTableXs = ({dir, borderFlag, header, data, loading, selectDataToShow,
                                         <Typography variant={"body1"} color={'text.secondary'}> MCap </Typography>
                                         <Typography variant={"body1"} color={'text.secondary'}>{Number(coin.market_cap).toLocaleString()}</Typography>
                                     </Grid>
-                                </TableCell>
+                                </StyledTableCell>
 
-                                <TableCell align="center" sx={{display: (unit === 'toman' ? 'table-cell' : 'none')}}>
+                                <StyledTableCell align="center" sx={{display: (unit === 'toman' ? 'table-cell' : 'none')}}>
                                     <Grid item display={"flex"} gap={1}>
                                         <PriceCell unit={unit} price={coin['low_24h']} type={'price'} dir={'row-reverse'}/>
                                         <Typography variant={"body2"} color={'text.secondary'}> : خرید </Typography>
@@ -80,11 +76,11 @@ const PriceTableXs = ({dir, borderFlag, header, data, loading, selectDataToShow,
                                         <PriceCell unit={unit} price={coin['high_24h']} type={'price'} dir={'row-reverse'}/>
                                         <Typography variant={"body2"} color={'text.secondary'}> : فروش </Typography>
                                     </Grid>
-                                </TableCell>
+                                </StyledTableCell>
 
-                                <TableCell>
+                                <StyledTableCell>
                                     <IconButton onClick={() => handelMark(coin)}>{coin.marked ? <Star color={'warning'}/> : <StarBorderOutlinedIcon/> }</IconButton>
-                                </TableCell>
+                                </StyledTableCell>
                             </TableRow>
                         ))}
                     </TableBody>
