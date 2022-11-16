@@ -80,6 +80,7 @@ const MainContent = () => {
                                         loading={loading}
                                         count={countOfDataToShow}
                                         sort={growthSelect}
+                                        borderFlag={true}
                                     />
                                 </Grid>
                             </Grid>

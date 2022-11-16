@@ -22,15 +22,11 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     borderBottom: 0
 }));
 
-const StyledTableContainer = styled(TableContainer)(({ theme}) => ({
-    borderRadius: '8px',
-    borderColor: theme.palette.divider
-}));
-
 
 const PriceTableSm = ({dir, borderFlag, header, data, loading, selectDataToShow, titles, setTableCellData, expand}) => {
+
     return (
-        <StyledTableContainer component={Paper} border={borderFlag ? '1px solid' : 0}>
+        <TableContainer component={Paper} sx={{border: (borderFlag ? '1px solid' : 0), borderColor: 'divider', borderRadius: '8px',}}>
             <Table aria-label="live price table" stickyHeader dir={direction[dir].dir}>
                 <TableHead>
                     <TableRow>
@@ -65,7 +61,7 @@ const PriceTableSm = ({dir, borderFlag, header, data, loading, selectDataToShow,
                     </TableBody>
                     : null}
             </Table>
-        </StyledTableContainer>
+        </TableContainer>
     )
 }
 

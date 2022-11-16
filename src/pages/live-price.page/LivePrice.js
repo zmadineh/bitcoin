@@ -14,11 +14,15 @@ import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import NothingToShow from "../../component/common/nothing-to-show/NothingToShow";
 
 
 const StyledContainer = styled(Container)(({ theme }) => ({
-    marginTop: '70px',
-    [theme.breakpoints.down('md')]: {
+    marginTop: '56px',
+    padding: '0px',
+
+    [theme.breakpoints.up('sm')]: {
+        marginTop: '64px',
         padding: '0px',
     },
 
@@ -98,18 +102,19 @@ const LivePrice = () => {
 
                        {data && loading ?
                            <Grid item container mt={{xs: '10px', md: '20px'}}>
-                                   <PriceTable
-                                       dir={'ltr'}
-                                       header={tableHeader}
-                                       titles={coinItemTitle}
-                                       data={filteredData().coins}
-                                       unit={unit}
-                                       loading={loading}
-                                       count={countOfDataToShow}
-                                       expand={true}
-                                       borderFlag={false}
-                                       sort={priceOrder}
-                                   />
+                               <PriceTable
+                                   dir={'ltr'}
+                                   header={tableHeader}
+                                   titles={coinItemTitle}
+                                   data={filteredData().coins}
+                                   unit={unit}
+                                   loading={loading}
+                                   count={countOfDataToShow}
+                                   expand={true}
+                                   borderFlag={false}
+                                   sort={priceOrder}
+                               />
+                               {filteredData().length === 0 ? <NothingToShow /> : null}
                            </Grid>
                            :
                        <LoadingAnimation /> }

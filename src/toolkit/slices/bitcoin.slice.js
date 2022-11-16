@@ -16,11 +16,11 @@ export const fetchBitcoinDataAsync = createAsyncThunk(
     async () => {
         try {
             const res  = await axios.request(options);
-            console.log('fetch', res.data)
+            // console.log('fetch', res.data)
             return res.data
         }
         catch (error) {
-            console.log(error)
+            // console.log(error)
         }
 
     }

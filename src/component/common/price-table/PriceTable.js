@@ -13,7 +13,7 @@ import Star from '@mui/icons-material/Star';
 import Grid from "@mui/material/Grid";
 
 
-const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, expand = false, sort = 'incremental', borderFlag=true}) => {
+const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, expand = false, sort = 'incremental', borderFlag= true}) => {
 
     const dispatch = useDispatch();
     const sortedCoinsIncremental  = useMemo(() => {
@@ -68,9 +68,6 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
                     loading={loading}
                     dir={dir}
                     borderFlag={borderFlag}
-                    header={header}
-                    titles={titles}
-                    setTableCellData={setTableCellData}
                     selectDataToShow={selectDataToShow}
                     unit={unit}
                     handelMark={handelMark}

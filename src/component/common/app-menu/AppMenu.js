@@ -26,13 +26,12 @@ const AppMenu = () => {
                 <IconButton
                     size="large"
                     edge="start"
-                    color="inherit"
                     aria-label="menu"
                     sx={{ ml: 2 }}
                     onClick={toggleDrawer( true)}
                 >
                     <MenuIcon />
-                    <Typography variant="body1" sx={{ flexGrow: 1, mr: 1 }}>{`منو`}</Typography>
+                    <Typography variant="body1" color={'text.primary'} sx={{ flexGrow: 1, mr: 1 }}>{`منو`}</Typography>
                 </IconButton>
 
                 <NavMenu />

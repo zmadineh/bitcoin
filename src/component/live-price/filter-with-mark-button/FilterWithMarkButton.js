@@ -12,14 +12,14 @@ const StyledButton = styled(Button)(({ theme }) => ({
     height: '100%',
     width: '100%',
     borderRadius: '8px',
+    border: '1px solid',
     borderColor: theme.palette.grey["100"],
-    color: theme.palette.secondary.main,
 }));
 
 
 const FilterWithMarkButton = ({ markedSelected, setMarkedSelected }) => {
     return(
-        <StyledButton variant="outlined" onClick={() => setMarkedSelected(!markedSelected)}>
+        <StyledButton variant="outlined" onClick={() => setMarkedSelected(!markedSelected)} color={'secondary'}>
             <Grid display={"flex"} alignItems={"center"} gap={1}>
                 {markedSelected ? <Star color={'warning'}/> : <StarBorderOutlinedIcon /> }
                 <Typography variant={'body1'} noWrap color={'text.primary'}> نشان شده ها</Typography>

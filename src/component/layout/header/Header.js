@@ -1,6 +1,7 @@
 import React from "react";
 
 import AppMenu from "../../common/app-menu/AppMenu";
+import NavLink from "../nav-link/NavLink";
 
 import headerLogo from "../../../assets/images/header-logo.svg";
 
@@ -10,13 +11,25 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
-import NavLink from "../nav-link/NavLink";
+import {styled} from "@mui/material/styles";
 
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
+    color: 'text.primary',
+    top: '0',
+    zIndex: '1000',
+    // backgroundColor: theme.palette.background.secondary,
 
+    [theme.breakpoints.down('md')]: {
+        backgroundColor: theme.palette.background.default,
+        border: '1px solid',
+        borderColor: theme.palette.divider,
+        color: theme.palette.text.primary,
+    }
+}));
 
 const Header = ({color}) => {
     return (
-            <AppBar position="fixed" dir={'rtl'} sx={{backgroundColor: color, color: 'text.primary', top: '0', zIndex: '1000' }}>
+            <StyledAppBar position="fixed" dir={'rtl'} sx={{backgroundColor: color}}>
                 <Container maxWidth="lg">
                     <Toolbar>
                         <Grid container justifyContent={"space-between"} sx={{display: { xs: 'none', md: 'flex' }}}>
@@ -30,15 +43,12 @@ const Header = ({color}) => {
                         </Grid>
 
                         <Grid container sx={{display: { xs: 'flex', md: 'none' }}}>
-
-                            <Grid>
-                                <NavLink />
-                            </Grid>
+                            <NavLink />
                         </Grid>
 
                     </Toolbar>
                 </Container>
-            </AppBar>
+            </StyledAppBar>
     )
 }
 

@@ -32,7 +32,7 @@ const StyledTableContainer = styled(TableContainer)(({ theme}) => ({
 }));
 
 
-const PriceTableXs = ({dir, borderFlag, header, data, loading, selectDataToShow, titles, setTableCellData, unit, handelMark}) => {
+const PriceTableXs = ({dir, borderFlag, data, loading, selectDataToShow, unit, handelMark}) => {
     return (
         <StyledTableContainer border={borderFlag ? '1px solid' : 0}>
             <Table aria-label="live price table" stickyHeader dir={direction[dir].dir}>

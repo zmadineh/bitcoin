@@ -14,11 +14,6 @@ const NavLink = () => {
     const pageTitle = currentPage.title;
     // const pageLink = currentPage.link;
 
-    console.log('hash', location.hash);
-    console.log('pathname', location.pathname);
-    console.log('search', location.search);
-    console.log()
-
     return (
         <Grid container>
             {pageTitle === 'خانه' ?
