@@ -22,7 +22,6 @@ export const fetchBitcoinDataAsync = createAsyncThunk(
         catch (error) {
             // console.log(error)
         }
-
     }
 )
 

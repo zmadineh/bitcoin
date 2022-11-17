@@ -20,6 +20,7 @@ import Star from "@mui/icons-material/Star";
 import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
 import IconButton from "@mui/material/IconButton";
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
+import LineChart from "../line-chart/LineChart";
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -49,7 +50,7 @@ const PriceTableXs = ({dir, borderFlag, data, loading, selectDataToShow, unit, h
                                 </StyledTableCell>
 
                                 <StyledTableCell sx={{display: (unit === 'tether' ? 'table-cell' : 'none')}}>
-                                    chart
+                                    <LineChart />
                                 </StyledTableCell>
 
                                 <StyledTableCell align="center" sx={{display: (unit === 'tether' ? 'table-cell' : 'none')}}>
