@@ -13,7 +13,14 @@ export const theme = createTheme({
                         color: "inherit",
                     }
                 }
-            }
+            },
+
+            '@global': {
+                html: {
+                    WebkitFontSmoothing: 'auto',
+                    fontSize: 16,
+                },
+            },
         },
     },
 
@@ -132,4 +139,4 @@ export const theme = createTheme({
         '0px 12px 32px rgba(0,0,0,.04)',
         '0px 40px 72px rgba(#4285F2, 0.08)',
     ],
-})
+});

@@ -2,16 +2,17 @@ import React from "react";
 
 import Card from "../card/Card";
 import PercentageCell from "../percentage-cell/PercentageCell";
+import LineChart from "../line-chart/LineChart";
 
 import {direction} from "../../../data/direction.data";
 import {financial} from "../../../helper/financial.helper";
+import {numFormatter} from "../../../helper/numFormatter.helper";
 
-import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
 import TableBody from "@mui/material/TableBody";
-import TableCell, {tableCellClasses} from "@mui/material/TableCell";
+import TableCell from "@mui/material/TableCell";
 import {styled} from "@mui/material/styles";
 import TableContainer from "@mui/material/TableContainer";
 import PriceCell from "../price-cell/PriceCell";
@@ -20,7 +21,6 @@ import Star from "@mui/icons-material/Star";
 import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
 import IconButton from "@mui/material/IconButton";
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
-import LineChart from "../line-chart/LineChart";
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -29,7 +29,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const StyledTableContainer = styled(TableContainer)(({ theme}) => ({
     borderRadius: '8px',
-    borderColor: theme.palette.divider
+    borderColor: theme.palette.divider,
 }));
 
 
@@ -50,7 +50,7 @@ const PriceTableXs = ({dir, borderFlag, data, loading, selectDataToShow, unit, h
                                 </StyledTableCell>
 
                                 <StyledTableCell sx={{display: (unit === 'tether' ? 'table-cell' : 'none')}}>
-                                    <LineChart />
+                                    <LineChart changes={coin['price_change_percentage_24h']} coinId={coin['id']}/>
                                 </StyledTableCell>
 
                                 <StyledTableCell align="center" sx={{display: (unit === 'tether' ? 'table-cell' : 'none')}}>
@@ -63,7 +63,7 @@ const PriceTableXs = ({dir, borderFlag, data, loading, selectDataToShow, unit, h
 
                                     <Grid item display={"flex"} gap={1}>
                                         <Typography variant={"body1"} color={'text.secondary'}> MCap </Typography>
-                                        <Typography variant={"body1"} color={'text.secondary'}>{Number(coin.market_cap).toLocaleString()}</Typography>
+                                        <Typography variant={"body1"} color={'text.secondary'}>{numFormatter(coin.market_cap)}</Typography>
                                     </Grid>
                                 </StyledTableCell>
 

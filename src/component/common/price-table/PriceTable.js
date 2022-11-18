@@ -1,4 +1,4 @@
-import React, {Fragment, useMemo} from 'react';
+import React, {useMemo} from 'react';
 import {useDispatch} from "react-redux";
 import {addMark, removeMark} from "../../../toolkit/slices/bitcoin.slice";
 
@@ -6,6 +6,7 @@ import PriceTableSm from "./PriceTableSm";
 import PriceTableXs from "./PriceTableXs";
 import PriceCell from "../price-cell/PriceCell";
 import PercentageCell from "../percentage-cell/PercentageCell";
+import LineChart from "../line-chart/LineChart";
 
 import IconButton from "@mui/material/IconButton";
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
@@ -45,7 +46,9 @@ const PriceTable = ({dir = 'rtl', header, titles, data, unit, loading, count, ex
             if(title.type === 'mark')
                 return <IconButton onClick={() => handelMark(coin)}>{coin.marked ? <Star color={'warning'}/> : <StarBorderOutlinedIcon/> }</IconButton>
             else if(title.type === 'chart')
-                return 'chart'
+                return (
+                    <LineChart changes={coin['price_change_percentage_24h']} coinId={coin['id']}/>
+                )
 
         if(title.type === 'percentage')
             return <PercentageCell percentage={coin[title.label]} type={title.type} />
